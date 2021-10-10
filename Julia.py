@@ -268,8 +268,8 @@ if __name__ == '__main__':
 	
 	
 	steps = 60
-	cmap = 'Blues_r'
-	path_and_file_naming_convention = 'Blues_r' + '_Julia_Set/Blue_'
+	cmap = 'gist_rainbow'
+	path_and_file_naming_convention = 'gist_rainbow' + '_Julia_Set/gist_rainbow_'
 	##
 	#Find all the sets for all of the points on the unit circle
 	julia.plot_all_sets_on_the_unit_circle(steps, cmap, path_and_file_naming_convention)

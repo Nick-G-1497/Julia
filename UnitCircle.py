@@ -11,10 +11,19 @@ from math import *
 pi = 3.14
 
 ##
-# j is equal to the square root of negative one. Using j instead of i because "imaginary" is a terrible name for describing the behavior of complex numbers. Historically it has also been used by electrical engineers because i is already current. 
+# The square root of negative one
+# @details Using j instead of i because "imaginary" is a terrible name for describing the behavior of complex numbers. 
+# The history of why we refer to imaginary numbers as follows: Renee Decartes ran into the issue of getting a 
+# negative number in the radical. Convertionally, this would be regarded as unsolvable with the current doctrine 
+# and state of mathematics. He asked the question if you pulled out the square root of negative one as a constant, 
+# mechanically as conceptually how would you deal with this. He relized that you can graphically represent numbers 
+# of these sort as 2 dimensional. He didn't think anyone would ever use this constant ever again because it made no s
+# ense to him. There is written record that he came up with the most ridulous name he could think of so he named them 
+# imaginary numbers. Euler late proposed a slight alternate naming which they are also refer to as complex number since 
+# the have 2D properties.  Historically j has also been used by electrical engineers because i is already current. 
 j = complex(0, 1)
 
-##
+##complex
 # Module used for calculating the unit circle
 class UnitCircle:
 	
@@ -31,7 +40,7 @@ class UnitCircle:
 	# @note https://observablehq.com/@jonhelfman/unit-circle-complex-plane
 	# @note the unit circle gets built starting at 12 o'clock and adding values in the counter clockwise direction 
 	def getValues(self):
-		phases = np.linspace(pi/2, 3*pi/2, self._resolution)
+		phases = np.linspace(pi/2, 27*pi/2, self._resolution)
 		
 		real = []
 		imaginary = []
