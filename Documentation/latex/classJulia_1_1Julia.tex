@@ -1,0 +1,143 @@
+\hypertarget{classJulia_1_1Julia}{}\doxysection{Julia.\+Julia Class Reference}
+\label{classJulia_1_1Julia}\index{Julia.Julia@{Julia.Julia}}
+
+
+\mbox{\hyperlink{classJulia_1_1Julia}{Julia}} is a tool built for generatinpythg various julia sets.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classJulia_1_1Julia_a966f5090e8ab789ab45b8bbe84435da9}{color\+\_\+map\+\_\+\+PIL}} (self, itterations\+\_\+til\+\_\+divergence)
+\begin{DoxyCompactList}\small\item\em Apply some sort of mapping from the number of itterations the point in the complex plane does before diverging to an RGB value that the pixel will take on. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classJulia_1_1Julia_a0e1936a276502427c68224cec26ac15a}{plot\+\_\+with\+\_\+\+PIL}} (self, dir=\textquotesingle{}./\textquotesingle{}, \mbox{\hyperlink{namespaceJulia_a89c631f2e71a18e32a6df6a12075e38d}{phase}}=\textquotesingle{}\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Function used to render an image of the specific julia set defined by the constant value given by the user using to PIL library. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classJulia_1_1Julia_ac76ace0a5ae69309a3404b89501a2a49}{plot\+\_\+julia\+\_\+set\+\_\+with\+\_\+matplotlib}} (self, cmap, \mbox{\hyperlink{namespaceJulia_a89c631f2e71a18e32a6df6a12075e38d}{phase}})
+\begin{DoxyCompactList}\small\item\em Function used to render an image of the specific julia set defined by the constant value given by the user using to matplotlib library. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classJulia_1_1Julia_addf93486cd9ed71651e884bcc7e85f4e}{plot\+\_\+mandelbrot}} (self)
+\begin{DoxyCompactList}\small\item\em Plot but for the Mandelbrot use case. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJulia_1_1Julia_a94e48755257f5e3d7d22a313116a6a70}\label{classJulia_1_1Julia_a94e48755257f5e3d7d22a313116a6a70}} 
+def \mbox{\hyperlink{classJulia_1_1Julia_a94e48755257f5e3d7d22a313116a6a70}{set\+\_\+resolution}} (self, resolution)
+\begin{DoxyCompactList}\small\item\em User accessable function that allows them to set what resolution to set the generated photo. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJulia_1_1Julia_ae0335f4eaf329175291d55970fa68b33}\label{classJulia_1_1Julia_ae0335f4eaf329175291d55970fa68b33}} 
+def \mbox{\hyperlink{classJulia_1_1Julia_ae0335f4eaf329175291d55970fa68b33}{set\+\_\+constant}} (self, c)
+\begin{DoxyCompactList}\small\item\em Function enabled to let the user set the constant value of the constant that is used in the itterative definition of the set. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classJulia_1_1Julia_a34735afc8b0dbf49fba49e2bd99c5b10}{set\+\_\+color\+\_\+map}} (self, cmap)
+\begin{DoxyCompactList}\small\item\em Function enabled to let the end use set the color map they like best. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJulia_1_1Julia_a8eb3e771a5b9df3ff333c5519ab58886}\label{classJulia_1_1Julia_a8eb3e771a5b9df3ff333c5519ab58886}} 
+def \mbox{\hyperlink{classJulia_1_1Julia_a8eb3e771a5b9df3ff333c5519ab58886}{plot\+\_\+all\+\_\+sets\+\_\+on\+\_\+the\+\_\+unit\+\_\+circle}} (self, resolution\+\_\+in\+\_\+time, cmap)
+\begin{DoxyCompactList}\small\item\em Define a unit circle, transcribe it in the complex plane, and find all of the julia set for all of the value @params resolution number of steps in time/phase to take along the unit circle @params cmap color map to plot the rotation as. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classJulia_1_1Julia}{Julia}} is a tool built for generatinpythg various julia sets. 
+
+A julia set is defined by a function repeated or itterated numerous time. If due to the starting point the funtion diverges over itteration then the point is said not to be in the set. If remains inside an arbitrary finite space we define then it is said to be in the set.
+
+\begin{DoxyNote}{Note}
+A \mbox{\hyperlink{classJulia_1_1Julia}{Julia}} set is defined for a point in the complex plane by itterating over the following equation. If the Z value blow up beyond a certain magnitude then we exclude it from the set. However, if it stays arbitrarily finite then we in clude it in the set 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Znext = Zprev * Zprev + constant }
+
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item where c is a constant we define in the complex plane or in any arbitrary 2D vector space if you are thinking about it graphically 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classJulia_1_1Julia_a966f5090e8ab789ab45b8bbe84435da9}\label{classJulia_1_1Julia_a966f5090e8ab789ab45b8bbe84435da9}} 
+\index{Julia.Julia@{Julia.Julia}!color\_map\_PIL@{color\_map\_PIL}}
+\index{color\_map\_PIL@{color\_map\_PIL}!Julia.Julia@{Julia.Julia}}
+\doxysubsubsection{\texorpdfstring{color\_map\_PIL()}{color\_map\_PIL()}}
+{\footnotesize\ttfamily def Julia.\+Julia.\+color\+\_\+map\+\_\+\+PIL (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{itterations\+\_\+til\+\_\+divergence }\end{DoxyParamCaption})}
+
+
+
+Apply some sort of mapping from the number of itterations the point in the complex plane does before diverging to an RGB value that the pixel will take on. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em itterations\+\_\+til\+\_\+divergence} & array of measurement of how many iterations each point lasted untill it diverged \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]fix spelling mistake \end{DoxyRefDesc}
+\mbox{\Hypertarget{classJulia_1_1Julia_ac76ace0a5ae69309a3404b89501a2a49}\label{classJulia_1_1Julia_ac76ace0a5ae69309a3404b89501a2a49}} 
+\index{Julia.Julia@{Julia.Julia}!plot\_julia\_set\_with\_matplotlib@{plot\_julia\_set\_with\_matplotlib}}
+\index{plot\_julia\_set\_with\_matplotlib@{plot\_julia\_set\_with\_matplotlib}!Julia.Julia@{Julia.Julia}}
+\doxysubsubsection{\texorpdfstring{plot\_julia\_set\_with\_matplotlib()}{plot\_julia\_set\_with\_matplotlib()}}
+{\footnotesize\ttfamily def Julia.\+Julia.\+plot\+\_\+julia\+\_\+set\+\_\+with\+\_\+matplotlib (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cmap,  }\item[{}]{phase }\end{DoxyParamCaption})}
+
+
+
+Function used to render an image of the specific julia set defined by the constant value given by the user using to matplotlib library. 
+
+\begin{DoxyNote}{Note}
+For a more detailed explaination of what a \mbox{\hyperlink{classJulia_1_1Julia}{Julia}} set is please see -\/ \href{https://youtu.be/dctJ7ISkU-4}{\texttt{ https\+://youtu.\+be/dct\+J7\+ISk\+U-\/4}} 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & directory the file should be saved in \\
+\hline
+{\em phase} & current phase in radians of where the constant value is regards to the unitcircle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJulia_1_1Julia_addf93486cd9ed71651e884bcc7e85f4e}\label{classJulia_1_1Julia_addf93486cd9ed71651e884bcc7e85f4e}} 
+\index{Julia.Julia@{Julia.Julia}!plot\_mandelbrot@{plot\_mandelbrot}}
+\index{plot\_mandelbrot@{plot\_mandelbrot}!Julia.Julia@{Julia.Julia}}
+\doxysubsubsection{\texorpdfstring{plot\_mandelbrot()}{plot\_mandelbrot()}}
+{\footnotesize\ttfamily def Julia.\+Julia.\+plot\+\_\+mandelbrot (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Plot but for the Mandelbrot use case. 
+
+\begin{DoxyNote}{Note}
+For explaination of what the Mandelbrot Set is see -\/ \href{https://youtu.be/NGMRB4O922I}{\texttt{ https\+://youtu.\+be/\+NGMRB4\+O922I}} 
+
+Benoit Mandelbrot is a recent enough mathematician for you to find his Ted Talk on youtube\+: \href{https://www.youtube.com/watch?v=ay8OMOsf6AQ}{\texttt{ https\+://www.\+youtube.\+com/watch?v=ay8\+OMOsf6\+AQ}} 
+\end{DoxyNote}
+\mbox{\Hypertarget{classJulia_1_1Julia_a0e1936a276502427c68224cec26ac15a}\label{classJulia_1_1Julia_a0e1936a276502427c68224cec26ac15a}} 
+\index{Julia.Julia@{Julia.Julia}!plot\_with\_PIL@{plot\_with\_PIL}}
+\index{plot\_with\_PIL@{plot\_with\_PIL}!Julia.Julia@{Julia.Julia}}
+\doxysubsubsection{\texorpdfstring{plot\_with\_PIL()}{plot\_with\_PIL()}}
+{\footnotesize\ttfamily def Julia.\+Julia.\+plot\+\_\+with\+\_\+\+PIL (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{dir = {\ttfamily \textquotesingle{}./\textquotesingle{}},  }\item[{}]{phase = {\ttfamily \textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+Function used to render an image of the specific julia set defined by the constant value given by the user using to PIL library. 
+
+\begin{DoxyNote}{Note}
+For a more detailed explaination of what a \mbox{\hyperlink{classJulia_1_1Julia}{Julia}} set is please see -\/ \href{https://youtu.be/dctJ7ISkU-4}{\texttt{ https\+://youtu.\+be/dct\+J7\+ISk\+U-\/4}} 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & directory the file should be saved in \\
+\hline
+{\em phase} & current phase in radians of where the constant value is regards to the unitcircle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJulia_1_1Julia_a34735afc8b0dbf49fba49e2bd99c5b10}\label{classJulia_1_1Julia_a34735afc8b0dbf49fba49e2bd99c5b10}} 
+\index{Julia.Julia@{Julia.Julia}!set\_color\_map@{set\_color\_map}}
+\index{set\_color\_map@{set\_color\_map}!Julia.Julia@{Julia.Julia}}
+\doxysubsubsection{\texorpdfstring{set\_color\_map()}{set\_color\_map()}}
+{\footnotesize\ttfamily def Julia.\+Julia.\+set\+\_\+color\+\_\+map (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cmap }\end{DoxyParamCaption})}
+
+
+
+Function enabled to let the end use set the color map they like best. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmap} & string refering to which color map we should use supported by the matplotlib library\\
+\hline
+\end{DoxyParams}
+Options supportted by native matplotlib\+: afmhot, autumn, bone, binary, bwr, brg, CMRmap, cool, copper, cubehelix, flag, gnuplot, gnuplot2, gray, hot, hsv, jet, ocean, pink, prism, rainbow, seismic, spring, summer, terrain, winter, nipy\+\_\+spectral, spectral, Accent, Blues, Br\+BG, Bu\+Gn, Bu\+Pu, Dark2, Gn\+Bu, Greens, Greys, Oranges, Or\+Rd, Paired, Pastel1, Pastel2, Pi\+YG, PRGn, Pu\+Bu, Pu\+Bu\+Gn, Pu\+Or, Pu\+Rd, Purples, Rd\+Bu, Rd\+Gy, Rd\+Pu, ~\newline
+ Rd\+Yl\+Bu, Rd\+Yl\+Gn, Reds, Set1, Set2, Set3, Spectral, Yl\+Gn, Yl\+Gn\+Bu, Yl\+Or\+Br, Yl\+Or\+Rd, gist\+\_\+earth, gist\+\_\+gray, gist\+\_\+heat, gist\+\_\+ncar, gist\+\_\+rainbow, gist\+\_\+stern, gist\+\_\+yarg, coolwarm, Wistia, afmhot\+\_\+r, autumn\+\_\+r, bone\+\_\+r, binary\+\_\+r, bwr\+\_\+r, brg\+\_\+r, CMRmap\+\_\+r, cool\+\_\+r, copper\+\_\+r, cubehelix\+\_\+r, flag\+\_\+r, gnuplot\+\_\+r, gnuplot2\+\_\+r, gray\+\_\+r, hot\+\_\+r, hsv\+\_\+r, jet\+\_\+r, ocean\+\_\+r, pink\+\_\+r, prism\+\_\+r, rainbow\+\_\+r, seismic\+\_\+r, spring\+\_\+r, summer\+\_\+r, terrain\+\_\+r, winter\+\_\+r, nipy\+\_\+spectral\+\_\+r, spectral\+\_\+r, Accent\+\_\+r, Blues\+\_\+r, Br\+BG\+\_\+r, Bu\+Gn\+\_\+r, Bu\+Pu\+\_\+r, Dark2\+\_\+r, Gn\+Bu\+\_\+r, Greens\+\_\+r, Greys\+\_\+r, Oranges\+\_\+r, Or\+Rd\+\_\+r, Paired\+\_\+r, Pastel1\+\_\+r, Pastel2\+\_\+r, Pi\+YG\+\_\+r, PRGn\+\_\+r, Pu\+Bu\+\_\+r, Pu\+Bu\+Gn\+\_\+r, Pu\+Or\+\_\+r, Pu\+Rd\+\_\+r, Purples\+\_\+r, Rd\+Bu\+\_\+r, Rd\+Gy\+\_\+r, Rd\+Pu\+\_\+r, Rd\+Yl\+Bu\+\_\+r, Rd\+Yl\+Gn\+\_\+r, Reds\+\_\+r, Set1\+\_\+r, Set2\+\_\+r, Set3\+\_\+r, Spectral\+\_\+r, Yl\+Gn\+\_\+r, Yl\+Gn\+Bu\+\_\+r, Yl\+Or\+Br\+\_\+r, Yl\+Or\+Rd\+\_\+r, gist\+\_\+earth\+\_\+r, gist\+\_\+gray\+\_\+r, gist\+\_\+heat\+\_\+r, gist\+\_\+ncar\+\_\+r, gist\+\_\+rainbow\+\_\+r, gist\+\_\+stern\+\_\+r, gist\+\_\+yarg\+\_\+r, coolwarm\+\_\+r, Wistia\+\_\+r 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Julia.\+py\end{DoxyCompactItemize}

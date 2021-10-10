@@ -1,0 +1,69 @@
+\hypertarget{namespaceJulia}{}\doxysection{Julia Namespace Reference}
+\label{namespaceJulia}\index{Julia@{Julia}}
+
+
+A library for building clocks based on the \mbox{\hyperlink{namespaceJulia}{Julia}} Sets.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classJulia_1_1Julia}{Julia}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classJulia_1_1Julia}{Julia}} is a tool built for generatinpythg various julia sets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceJulia_a89c631f2e71a18e32a6df6a12075e38d}{phase}} = lambda z\+\_\+value \+: atan(z\+\_\+value.\+imag/ z\+\_\+value.\+real)
+\begin{DoxyCompactList}\small\item\em Lambda function used to get the phase of a point in the complex plane. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceJulia_a83c2fc10fa81171be1fed7ea69053662}{julia}} = \mbox{\hyperlink{classJulia_1_1Julia}{Julia}}()
+\begin{DoxyCompactList}\small\item\em Main Block of code that gets executed if you call it directly otherwise you can just import the class and not bring this code with ut ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceJulia_aa61988d26827138ee2fa0e81abb11840}\label{namespaceJulia_aa61988d26827138ee2fa0e81abb11840}} 
+list \mbox{\hyperlink{namespaceJulia_aa61988d26827138ee2fa0e81abb11840}{collection\+\_\+of\+\_\+julia\+\_\+sets}} = \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Collection of \mbox{\hyperlink{namespaceJulia}{Julia}} Sets a list of points in the complex plane which create cool looking \mbox{\hyperlink{namespaceJulia}{Julia}} set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A library for building clocks based on the \mbox{\hyperlink{namespaceJulia}{Julia}} Sets. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Get 4K images rendering 
+
+Get a way to combine the pngs into a gif for README.\+md page 
+
+dynamic color grading 
+
+impolement multiplrocessing so it builds multiple unit circle collections at the same time (can either uses mutexes have each rotation be its own independant resource) 
+
+write some unit test making sure whatever implementation that gets 
+
+collaborate with someone who has a strong background in algorithms to make it run faster \end{DoxyRefDesc}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceJulia_a83c2fc10fa81171be1fed7ea69053662}\label{namespaceJulia_a83c2fc10fa81171be1fed7ea69053662}} 
+\index{Julia@{Julia}!julia@{julia}}
+\index{julia@{julia}!Julia@{Julia}}
+\doxysubsubsection{\texorpdfstring{julia}{julia}}
+{\footnotesize\ttfamily Julia.\+julia = \mbox{\hyperlink{classJulia_1_1Julia}{Julia}}()}
+
+
+
+Main Block of code that gets executed if you call it directly otherwise you can just import the class and not bring this code with ut ~\newline
+ 
+
+Create an instance of the \mbox{\hyperlink{namespaceJulia}{Julia}} object \mbox{\Hypertarget{namespaceJulia_a89c631f2e71a18e32a6df6a12075e38d}\label{namespaceJulia_a89c631f2e71a18e32a6df6a12075e38d}} 
+\index{Julia@{Julia}!phase@{phase}}
+\index{phase@{phase}!Julia@{Julia}}
+\doxysubsubsection{\texorpdfstring{phase}{phase}}
+{\footnotesize\ttfamily Julia.\+phase = lambda z\+\_\+value \+: atan(z\+\_\+value.\+imag/ z\+\_\+value.\+real)}
+
+
+
+Lambda function used to get the phase of a point in the complex plane. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em z\+\_\+value} & point in the complex plane with a real and imaginary attribute \\
+\hline
+\end{DoxyParams}
