@@ -20,7 +20,7 @@ class EulersSpiral:
     ##
     # Functions used to get all the points which ly on the curve
     def getValues(self):
-        return fresnel(self.time)
+        return fresnel(self.time) 
 
     ##
     # Function used to plot the curve and show the output to the user using a
