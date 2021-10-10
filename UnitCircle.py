@@ -29,8 +29,9 @@ class UnitCircle:
 	# Very inefficent to calculate it in this way but were thinking in terms of complex numbers and the math is pretty.
 	#
 	# @note https://observablehq.com/@jonhelfman/unit-circle-complex-plane
+	# @note the unit circle gets built starting at 12 o'clock and adding values in the counter clockwise direction 
 	def getValues(self):
-		phases = np.linspace(pi/4, 5*pi/4, self._resolution)
+		phases = np.linspace(pi/2, 3*pi/2, self._resolution)
 		
 		real = []
 		imaginary = []

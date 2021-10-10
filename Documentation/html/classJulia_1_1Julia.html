@@ -86,9 +86,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0e1936a276502427c68224cec26ac15a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJulia_1_1Julia.html#a0e1936a276502427c68224cec26ac15a">plot_with_PIL</a> (self, dir='./', <a class="el" href="namespaceJulia.html#a89c631f2e71a18e32a6df6a12075e38d">phase</a>='')</td></tr>
 <tr class="memdesc:a0e1936a276502427c68224cec26ac15a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to render an image of the specific julia set defined by the constant value given by the user using to PIL library.  <a href="classJulia_1_1Julia.html#a0e1936a276502427c68224cec26ac15a">More...</a><br /></td></tr>
 <tr class="separator:a0e1936a276502427c68224cec26ac15a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac76ace0a5ae69309a3404b89501a2a49"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJulia_1_1Julia.html#ac76ace0a5ae69309a3404b89501a2a49">plot_julia_set_with_matplotlib</a> (self, cmap, <a class="el" href="namespaceJulia.html#a89c631f2e71a18e32a6df6a12075e38d">phase</a>)</td></tr>
-<tr class="memdesc:ac76ace0a5ae69309a3404b89501a2a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to render an image of the specific julia set defined by the constant value given by the user using to matplotlib library.  <a href="classJulia_1_1Julia.html#ac76ace0a5ae69309a3404b89501a2a49">More...</a><br /></td></tr>
-<tr class="separator:ac76ace0a5ae69309a3404b89501a2a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a507b66104f711ec891ef56fcfe708a9c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJulia_1_1Julia.html#a507b66104f711ec891ef56fcfe708a9c">plot_julia_set_with_matplotlib</a> (self, cmap, step_number, path)</td></tr>
+<tr class="memdesc:a507b66104f711ec891ef56fcfe708a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to render an image of the specific julia set defined by the constant value given by the user using to matplotlib library.  <a href="classJulia_1_1Julia.html#a507b66104f711ec891ef56fcfe708a9c">More...</a><br /></td></tr>
+<tr class="separator:a507b66104f711ec891ef56fcfe708a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addf93486cd9ed71651e884bcc7e85f4e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJulia_1_1Julia.html#addf93486cd9ed71651e884bcc7e85f4e">plot_mandelbrot</a> (self)</td></tr>
 <tr class="memdesc:addf93486cd9ed71651e884bcc7e85f4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot but for the Mandelbrot use case.  <a href="classJulia_1_1Julia.html#addf93486cd9ed71651e884bcc7e85f4e">More...</a><br /></td></tr>
 <tr class="separator:addf93486cd9ed71651e884bcc7e85f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,15 +103,17 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memitem:a34735afc8b0dbf49fba49e2bd99c5b10"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJulia_1_1Julia.html#a34735afc8b0dbf49fba49e2bd99c5b10">set_color_map</a> (self, cmap)</td></tr>
 <tr class="memdesc:a34735afc8b0dbf49fba49e2bd99c5b10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function enabled to let the end use set the color map they like best.  <a href="classJulia_1_1Julia.html#a34735afc8b0dbf49fba49e2bd99c5b10">More...</a><br /></td></tr>
 <tr class="separator:a34735afc8b0dbf49fba49e2bd99c5b10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eb3e771a5b9df3ff333c5519ab58886"><td class="memItemLeft" align="right" valign="top"><a id="a8eb3e771a5b9df3ff333c5519ab58886"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJulia_1_1Julia.html#a8eb3e771a5b9df3ff333c5519ab58886">plot_all_sets_on_the_unit_circle</a> (self, resolution_in_time, cmap)</td></tr>
-<tr class="memdesc:a8eb3e771a5b9df3ff333c5519ab58886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a unit circle, transcribe it in the complex plane, and find all of the julia set for all of the value @params resolution number of steps in time/phase to take along the unit circle @params cmap color map to plot the rotation as. <br /></td></tr>
-<tr class="separator:a8eb3e771a5b9df3ff333c5519ab58886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8125005d0461c79de8120fd509839812"><td class="memItemLeft" align="right" valign="top"><a id="a8125005d0461c79de8120fd509839812"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJulia_1_1Julia.html#a8125005d0461c79de8120fd509839812">plot_all_sets_on_the_unit_circle</a> (self, resolution_in_time, cmap, path)</td></tr>
+<tr class="memdesc:a8125005d0461c79de8120fd509839812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a unit circle, transcribe it in the complex plane, and find all of the julia set for all of the value @params resolution number of steps in time/phase to take along the unit circle @params cmap color map to plot the rotation as. <br /></td></tr>
+<tr class="separator:a8125005d0461c79de8120fd509839812"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classJulia_1_1Julia.html" title="Julia is a tool built for generatinpythg various julia sets.">Julia</a> is a tool built for generatinpythg various julia sets. </p>
 <p>A julia set is defined by a function repeated or itterated numerous time. If due to the starting point the funtion diverges over itteration then the point is said not to be in the set. If remains inside an arbitrary finite space we define then it is said to be in the set.</p>
-<dl class="section note"><dt>Note</dt><dd>A <a class="el" href="classJulia_1_1Julia.html" title="Julia is a tool built for generatinpythg various julia sets.">Julia</a> set is defined for a point in the complex plane by itterating over the following equation. If the Z value blow up beyond a certain magnitude then we exclude it from the set. However, if it stays arbitrarily finite then we in clude it in the set <div class="fragment"><div class="line">Znext = Zprev * Zprev + constant </div>
+<dl class="section note"><dt>Note</dt><dd>A <a class="el" href="classJulia_1_1Julia.html" title="Julia is a tool built for generatinpythg various julia sets.">Julia</a> set is defined for a point in the complex plane by itterating over the following equation. If the Z value blow up beyond a certain magnitude then we exclude it from the set. However, if it stays arbitrarily finite then we in clude it in the set </dd>
+<dd>
+<a href="https://www.desmos.com/calculator/n1698xdz63">https://www.desmos.com/calculator/n1698xdz63</a> <div class="fragment"><div class="line">Znext = Zprev * Zprev + constant </div>
 </div><!-- fragment --><ul>
 <li>where c is a constant we define in the complex plane or in any arbitrary 2D vector space if you are thinking about it graphically </li>
 </ul>
@@ -150,12 +152,12 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>fix spelling mistake </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>fix spelling mistake </dd></dl>
 
 </div>
 </div>
-<a id="ac76ace0a5ae69309a3404b89501a2a49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac76ace0a5ae69309a3404b89501a2a49">&#9670;&nbsp;</a></span>plot_julia_set_with_matplotlib()</h2>
+<a id="a507b66104f711ec891ef56fcfe708a9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a507b66104f711ec891ef56fcfe708a9c">&#9670;&nbsp;</a></span>plot_julia_set_with_matplotlib()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,7 +178,13 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>phase</em>&#160;</td>
+          <td class="paramname"><em>step_number</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

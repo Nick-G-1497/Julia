@@ -9,7 +9,7 @@
 #  resource)
 #  @todo write some unit test making sure whatever implementation that gets 
 #  @todo collaborate with someone who has a strong background in algorithms to make it run faster
-#
+#  @todo eliminate the white borders surrounding the plot so it looks better as a background
 
 
 from matplotlib.image import BboxImage
@@ -33,6 +33,7 @@ phase = lambda z_value : atan(z_value.imag/ z_value.real)
 #
 # @note A Julia set is defined for a point in the complex plane by itterating over the following equation. If the Z value blow up beyond a certain
 # magnitude then we exclude it from the set. However, if it stays arbitrarily finite then we in clude it in the set 
+# @note https://www.desmos.com/calculator/n1698xdz63
 # ``` 
 # Znext = Zprev * Zprev + constant 
 # ```
@@ -144,7 +145,7 @@ class Julia ():
 	# @note For a more detailed explaination of what a Julia set is please see - https://youtu.be/dctJ7ISkU-4
 	# @param dir directory the file should be saved in
 	# @param phase current phase in radians of where the constant value is regards to the unitcircle
-	def plot_julia_set_with_matplotlib(self, cmap, phase):
+	def plot_julia_set_with_matplotlib(self, cmap, step_number, path):
 		fig = plt.figure()
 		plt.imshow(self._julia_set(
 			self._resolution_y,
@@ -153,7 +154,7 @@ class Julia ():
 		), cmap = cmap)
 		plt.axis('off')
 		plt.tight_layout()
-		plt.savefig('Blue_Julia_Set/test_' + phase +'.jpg', 
+		plt.savefig(path + str(step_number) +'.jpg', 
 			bbox_inches = 'tight',
 			)
 		# plt.show()
@@ -231,15 +232,17 @@ class Julia ():
 	# Define a unit circle, transcribe it in the complex plane, and find all of the julia set for all of the value 
 	# @params resolution number of steps in time/phase to take along the unit circle
 	# @params cmap color map to plot the rotation as
-	def plot_all_sets_on_the_unit_circle(self, resolution_in_time, cmap):
+	def plot_all_sets_on_the_unit_circle(self, resolution_in_time, cmap, path):
 		circle = UnitCircle(resolution_in_time)
 		
 		unit_circle = circle.getValues()
 		
+		step = 60
 		for z_value in unit_circle:
 			julia.set_constant(z_value)
 			julia.set_color_map(cmap)
-			julia.plot_julia_set_with_matplotlib(cmap, str(phase(z_value)))
+			julia.plot_julia_set_with_matplotlib(cmap, step, path)
+			step -= 1
 		
 
 ##
@@ -263,19 +266,15 @@ if __name__ == '__main__':
 	# collection_of_julia_sets.append(.32 + .32*j)
 	# collection_of_julia_sets.append(0 + .99*j)
 	
-
+	
+	steps = 60
+	cmap = 'Blues_r'
+	path_and_file_naming_convention = 'Blues_r' + '_Julia_Set/Blue_'
 	##
 	#Find all the sets for all of the points on the unit circle
-	julia.plot_all_sets_on_the_unit_circle(60, 'Blues_r')
-	
-	## 
-	# Plot the entire collection of Julia Sets  
-	for z_value in collection_of_julia_sets:
-		julia.set_constant(z_value)
-		julia.set_color_map('Blues_r')
-		julia.plot('Blue_Julia_Set/', z_value) 
-	
-	'''
-	Then plot the Mandelbrot Set
+	julia.plot_all_sets_on_the_unit_circle(steps, cmap, path_and_file_naming_convention)
+
+	''' 
+		Then plot the Mandelbrot Set
 	'''
 	# julia.plot_mandelbrot()
