@@ -233,11 +233,11 @@ class Julia ():
 	# @params resolution number of steps in time/phase to take along the unit circle
 	# @params cmap color map to plot the rotation as
 	def plot_all_sets_on_the_unit_circle(self, resolution_in_time, cmap, path):
-		circle = UnitCircle(resolution_in_time)
+		circle = UnitCircle(resolution_in_time * 12)
 		
 		unit_circle = circle.getValues()
 		
-		step = 60
+		step = 60 * 12
 		for z_value in unit_circle:
 			julia.set_constant(z_value)
 			julia.set_color_map(cmap)
@@ -252,29 +252,12 @@ if __name__ == '__main__':
 	
 	##
 	# Create an instance of the Julia object
-	julia = Julia()
+	julia = Julia()	
 	
-	##
-	#Collection of Julia Sets a list of points in the complex plane which create cool looking Julia set 
-	 
-	collection_of_julia_sets = []
-	# collection_of_julia_sets.append(0 -.8*j)
-	# collection_of_julia_sets.append(-0.1 + 0.651*j)
-	# collection_of_julia_sets.append(-0.835 - 0.2321*j)
-	# collection_of_julia_sets.append(.32-.11*j)
-	# collection_of_julia_sets.append(.32-.25*j)
-	# collection_of_julia_sets.append(.32 + .32*j)
-	# collection_of_julia_sets.append(0 + .99*j)
-	
-	
-	steps = 60
-	cmap = 'gist_rainbow'
-	path_and_file_naming_convention = 'gist_rainbow' + '_Julia_Set/gist_rainbow_'
+	resolution_in_time = 60
+	cmap = 'gist_earth'
+	path_and_file_naming_convention = cmap + '_Julia_Set/' + cmap + '_'
 	##
 	#Find all the sets for all of the points on the unit circle
-	julia.plot_all_sets_on_the_unit_circle(steps, cmap, path_and_file_naming_convention)
+	julia.plot_all_sets_on_the_unit_circle(resolution_in_time, cmap, path_and_file_naming_convention)
 
-	''' 
-		Then plot the Mandelbrot Set
-	'''
-	# julia.plot_mandelbrot()

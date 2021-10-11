@@ -42,11 +42,9 @@ class UnitCircle:
 	def getValues(self):
 		phases = np.linspace(pi/2, 27*pi/2, self._resolution)
 		
-		real = []
-		imaginary = []
-		
-		# real = [complex(( exp(j*phase) + exp(-j*phase) ) / 2 ) for phase in phases]
-		
+		# real = []
+		# imaginary = []
+		# real = [complex(( exp(j*phase) + exp(-j*phase) ) / 2 ) for phase in phases	
 		# imaginary = [complex(( exp(j*phase) + exp(-j*phase) ) / (2*j)) for phase in phases]
 		
 		self._circle = [e**(j*phase) for phase in phases]
