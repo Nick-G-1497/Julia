@@ -89,18 +89,14 @@ Variables</h2></td></tr>
 <tr class="memdesc:a83c2fc10fa81171be1fed7ea69053662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main Block of code that gets executed if you call it directly otherwise you can just import the class and not bring this code with ut <br  />
   <a href="namespaceJulia.html#a83c2fc10fa81171be1fed7ea69053662">More...</a><br /></td></tr>
 <tr class="separator:a83c2fc10fa81171be1fed7ea69053662"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa61988d26827138ee2fa0e81abb11840"><td class="memItemLeft" align="right" valign="top"><a id="aa61988d26827138ee2fa0e81abb11840"></a>
-list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceJulia.html#aa61988d26827138ee2fa0e81abb11840">collection_of_julia_sets</a> = []</td></tr>
-<tr class="memdesc:aa61988d26827138ee2fa0e81abb11840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of <a class="el" href="namespaceJulia.html" title="A library for building clocks based on the Julia Sets.">Julia</a> Sets a list of points in the complex plane which create cool looking <a class="el" href="namespaceJulia.html" title="A library for building clocks based on the Julia Sets.">Julia</a> set. <br /></td></tr>
-<tr class="separator:aa61988d26827138ee2fa0e81abb11840"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b22dedb080028db5a90595f7e87c7be"><td class="memItemLeft" align="right" valign="top"><a id="a5b22dedb080028db5a90595f7e87c7be"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>steps</b> = 60</td></tr>
-<tr class="separator:a5b22dedb080028db5a90595f7e87c7be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5796ab544f15089387dd1d99d4cd720"><td class="memItemLeft" align="right" valign="top"><a id="ac5796ab544f15089387dd1d99d4cd720"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>resolution_in_time</b> = 60</td></tr>
+<tr class="separator:ac5796ab544f15089387dd1d99d4cd720"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0d770531f241cd50c690fbed6e57286"><td class="memItemLeft" align="right" valign="top"><a id="ab0d770531f241cd50c690fbed6e57286"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>cmap</b> = 'gist_rainbow'</td></tr>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>cmap</b> = 'YlGnBu'</td></tr>
 <tr class="separator:ab0d770531f241cd50c690fbed6e57286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2aef26465287dddd8d862858ab4a271e"><td class="memItemLeft" align="right" valign="top"><a id="a2aef26465287dddd8d862858ab4a271e"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>path_and_file_naming_convention</b> = 'gist_rainbow' + '_Julia_Set/gist_rainbow_'</td></tr>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>path_and_file_naming_convention</b> = cmap + '_Julia_Set/' + cmap + '_'</td></tr>
 <tr class="separator:a2aef26465287dddd8d862858ab4a271e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -111,7 +107,8 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>path_and_file_namin
 <p class="interdd">impolement multiplrocessing so it builds multiple unit circle collections at the same time (can either uses mutexes have each rotation be its own independant resource) </p>
 <p class="interdd">write some unit test making sure whatever implementation that gets </p>
 <p class="interdd">collaborate with someone who has a strong background in algorithms to make it run faster </p>
-<p class="enddd">eliminate the white borders surrounding the plot so it looks better as a background </p>
+<p class="interdd">eliminate the white borders surrounding the plot so it looks better as a background </p>
+<p class="enddd">see if there is a periodicity to the the movements of the function </p>
 </dd></dl>
 </div><h2 class="groupheader">Variable Documentation</h2>
 <a id="a83c2fc10fa81171be1fed7ea69053662"></a>

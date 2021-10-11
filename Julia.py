@@ -11,6 +11,7 @@
 #  @todo collaborate with someone who has a strong background in algorithms to make it run faster
 #  @todo eliminate the white borders surrounding the plot so it looks better as a background
 #  @todo see if there is a periodicity to the the movements of the function
+#  @todo implement eulers spiral as a parametric path
 
 from matplotlib.image import BboxImage
 import matplotlib.pyplot as plt
@@ -230,8 +231,8 @@ class Julia ():
 
 	##
 	# Define a unit circle, transcribe it in the complex plane, and find all of the julia set for all of the value 
-	# @params resolution number of steps in time/phase to take along the unit circle
-	# @params cmap color map to plot the rotation as
+	# @param resolution number of steps in time/phase to take along the unit circle
+	# @param cmap color map to plot the rotation as
 	def plot_all_sets_on_the_unit_circle(self, resolution_in_time, cmap, path):
 		circle = UnitCircle(resolution_in_time )
 		
@@ -243,7 +244,7 @@ class Julia ():
 			julia.set_color_map(cmap)
 			julia.plot_julia_set_with_matplotlib(cmap, step, path)
 			step -= 1
-		
+	
 
 ##
 #Main Block of code that gets executed if you call it directly otherwise you can just import the class and not bring this code with ut 		

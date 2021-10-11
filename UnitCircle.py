@@ -34,7 +34,7 @@ class UnitCircle:
 		self._resolution = resolution
 		
 	##
-	##Calculate the unit circle with a variable resolution using Euler's method and complex numbers. 
+	# Calculate the unit circle with a variable resolution using Euler's method and complex numbers. 
 	# Very inefficent to calculate it in this way but were thinking in terms of complex numbers and the math is pretty.
 	#
 	# @note https://observablehq.com/@jonhelfman/unit-circle-complex-plane

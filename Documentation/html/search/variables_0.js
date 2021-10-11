@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['collection_5fof_5fjulia_5fsets_41',['collection_of_julia_sets',['../namespaceJulia.html#aa61988d26827138ee2fa0e81abb11840',1,'Julia']]]
+  ['j_40',['j',['../namespaceUnitCircle.html#a71f6b66c50f5092dd68a6a13442a6bcd',1,'UnitCircle']]],
+  ['julia_41',['julia',['../namespaceJulia.html#a83c2fc10fa81171be1fed7ea69053662',1,'Julia']]]
 ];
