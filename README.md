@@ -5,9 +5,5 @@ The clock based on the Julia Sets. They are defined by incredibly simple equatio
 ![alt text](./assets/julia.jpeg)
 
  
-![alt text](./assets/gist_ncar.gif) 
-
-![alt text](./assets/plasma.gif)
-
-![alt text](./assets/gist_rainbow.gif.gif)
+![alt text](./assets/full_circle.gif)
 

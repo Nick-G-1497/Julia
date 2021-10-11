@@ -40,7 +40,7 @@ class UnitCircle:
 	# @note https://observablehq.com/@jonhelfman/unit-circle-complex-plane
 	# @note the unit circle gets built starting at 12 o'clock and adding values in the counter clockwise direction 
 	def getValues(self):
-		phases = np.linspace(pi/2, 27*pi/2, self._resolution)
+		phases = np.linspace(0, 2*pi, self._resolution)
 		
 		# real = []
 		# imaginary = []

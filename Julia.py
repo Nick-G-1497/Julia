@@ -10,7 +10,7 @@
 #  @todo write some unit test making sure whatever implementation that gets 
 #  @todo collaborate with someone who has a strong background in algorithms to make it run faster
 #  @todo eliminate the white borders surrounding the plot so it looks better as a background
-
+#  @todo see if there is a periodicity to the the movements of the function
 
 from matplotlib.image import BboxImage
 import matplotlib.pyplot as plt
@@ -233,11 +233,11 @@ class Julia ():
 	# @params resolution number of steps in time/phase to take along the unit circle
 	# @params cmap color map to plot the rotation as
 	def plot_all_sets_on_the_unit_circle(self, resolution_in_time, cmap, path):
-		circle = UnitCircle(resolution_in_time * 12)
+		circle = UnitCircle(resolution_in_time )
 		
 		unit_circle = circle.getValues()
 		
-		step = 60 * 12
+		step = 60 
 		for z_value in unit_circle:
 			julia.set_constant(z_value)
 			julia.set_color_map(cmap)
@@ -255,7 +255,7 @@ if __name__ == '__main__':
 	julia = Julia()	
 	
 	resolution_in_time = 60
-	cmap = 'gist_earth'
+	cmap = 'YlGnBu'
 	path_and_file_naming_convention = cmap + '_Julia_Set/' + cmap + '_'
 	##
 	#Find all the sets for all of the points on the unit circle
