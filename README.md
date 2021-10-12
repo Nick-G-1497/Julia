@@ -7,3 +7,4 @@ The clock based on the Julia Sets. They are defined by incredibly simple equatio
  
 ![alt text](./assets/full_circle.gif)
 
+![alt text](./assets/timer.gif)
