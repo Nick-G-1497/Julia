@@ -17,6 +17,8 @@ from matplotlib.image import BboxImage
 import matplotlib.pyplot as plt
 import numpy as np
 from numpy.lib.function_base import iterable
+from EulersSpiral import EulersSpiral
+from Spiral import Spiral
 from UnitCircle import *
 from math import *
 from PIL import Image
@@ -41,11 +43,37 @@ phase = lambda z_value : atan(z_value.imag/ z_value.real)
 #  - where c is a constant we define in the complex plane or in any arbitrary 2D vector space if you are thinking about it graphically
 class Julia ():
 		
-	_resolution_x = 3840
-	_resolution_y = 2160
+	_resolution_x = 500
+	_resolution_y = 500
 	_max_itt = 70
 	_c = complex(-0.6, 0.4)
 	_cmap = 'Purples'
+
+	def plot_all_sets_on_the_eulers_spiral(self, resolution_in_time, cmap, path):
+		spiral_t = EulersSpiral(resolution_in_time )
+		
+		S, C = spiral_t.getValues()
+		
+		step = resolution_in_time 
+		for i in range(resolution_in_time):
+			julia.set_constant(complex(S[i], C[i]))
+			julia.set_color_map(cmap)
+			julia.plot_julia_set_with_matplotlib(cmap, step, path)
+			step -= 1
+	
+
+
+	def plot_all_sets_on_spiral(self, resolution_in_time, cmap, path):
+		spiral_t = Spiral()
+		
+		spiral = spiral_t.getValues(resolution_in_time)
+		
+		step = 0 
+		for i in range(resolution_in_time):
+			self.set_constant(complex(spiral[i].real, spiral[i].imag))
+			self.set_color_map(cmap)
+			self.plot_julia_set_with_matplotlib(cmap, step, path)
+			step += 1
 
 	
 
@@ -255,10 +283,11 @@ if __name__ == '__main__':
 	# Create an instance of the Julia object
 	julia = Julia()	
 	
-	resolution_in_time = 60
-	cmap = 'YlGnBu'
+	resolution_in_time = 100
+	cmap = 'cool_r'
 	path_and_file_naming_convention = cmap + '_Julia_Set/' + cmap + '_'
 	##
 	#Find all the sets for all of the points on the unit circle
-	julia.plot_all_sets_on_the_unit_circle(resolution_in_time, cmap, path_and_file_naming_convention)
-
+	julia.plot_all_sets_on_spiral(resolution_in_time, cmap, path_and_file_naming_convention)
+    # julia.plot_all_sets_on_spiral(resolution_in_time, cmap, path_and_file_naming_convention)
+    # julia.plot_all_sets_on_spiral(resolution_in_time, cmap, path_and_file_naming_convention)

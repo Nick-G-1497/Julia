@@ -35,6 +35,16 @@ class EulersSpiral:
 
 
 if __name__ == '__main__':
-    eulersSpiral = EulersSpiral(1000)
+    eulersSpiral = EulersSpiral(400)
 
-    eulersSpiral.show_plot('Red')
+    # eulersSpiral.show_plot('Red')
+
+    eulersCurve = eulersSpiral.getValues()
+
+    S = eulersCurve[0]
+
+    C = eulersCurve[1]
+
+    plt.plot(S, C)
+
+    plt.show()
