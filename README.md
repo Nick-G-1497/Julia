@@ -15,4 +15,6 @@ This clock wouldn't have been possible without the work of Gaston Julia depicted
 ![alt text](./assets/full_circle.gif)
 
 ## Timer - parametric path of an inward spiral
+ - when you get to a circle the timer is up
+
 ![alt text](./assets/timer.gif)
