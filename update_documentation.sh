@@ -57,18 +57,18 @@ Dependancies
 # Press Enter to Update the Documentation                                                                            
 "
 read response;
-rm -rf Documentation;
-mkdir Documentation;
+rm -rf docs;
+mkdir docs;
 mv assets/Doxyfile .;
 mv assets/logo.png .;
 mv assets/doxygen-awesome-css .;
 cd include;
 doxygen Doxyfile;
-mv html Documentation/;
+mv html docs/;
 mv doxygen-awesome-css assets;
 mv Doxyfile assets;
 mv logo.png assets;
-mv latex Documentation/;
-cd Documentation;
+mv latex docs/;
+cd docs;
 firefox html/index.html;
 
