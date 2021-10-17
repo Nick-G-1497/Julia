@@ -1,6 +1,6 @@
 ## 
 #  @package Julia
-#  A library for building clocks based on the Julia Sets
+#  A library for generating various collections of Julia Sets
 #  @todo Get 4K images rendering
 #  @todo Get a way to combine the pngs into a gif for README.md page
 #  @todo dynamic color grading 
@@ -43,9 +43,9 @@ phase = lambda z_value : atan(z_value.imag/ z_value.real)
 #  - where c is a constant we define in the complex plane or in any arbitrary 2D vector space if you are thinking about it graphically
 class Julia ():
 		
-	_resolution_x = 500
-	_resolution_y = 500
-	_max_itt = 70
+	_resolution_x = 1600
+	_resolution_y = 900
+	_max_itt = 64
 	_c = complex(-0.6, 0.4)
 	_cmap = 'Purples'
 
@@ -183,7 +183,7 @@ class Julia ():
 		), cmap = cmap)
 		plt.axis('off')
 		plt.tight_layout()
-		plt.savefig(path + str(step_number) +'.jpg', 
+		plt.savefig(path + cmap + str(step_number) +'.jpg', 
 			bbox_inches = 'tight',
 			)
 		# plt.show()
@@ -266,11 +266,11 @@ class Julia ():
 		
 		unit_circle = circle.getValues()
 		
-		step = 60 
+		step = 59 
 		for z_value in unit_circle:
-			julia.set_constant(z_value)
-			julia.set_color_map(cmap)
-			julia.plot_julia_set_with_matplotlib(cmap, step, path)
+			self.set_constant(z_value)
+			self.set_color_map(cmap)
+			self.plot_julia_set_with_matplotlib(cmap, step, path)
 			step -= 1
 	
 

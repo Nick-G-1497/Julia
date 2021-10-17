@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['j_40',['j',['../namespaceUnitCircle.html#a71f6b66c50f5092dd68a6a13442a6bcd',1,'UnitCircle']]],
-  ['julia_41',['julia',['../namespaceJulia.html#a83c2fc10fa81171be1fed7ea69053662',1,'Julia']]]
+  ['colors_57',['colors',['../classJuliasClock_1_1JuliasClock.html#aa28c0c1de8c2476816baedddd7d04da3',1,'JuliasClock::JuliasClock']]]
 ];

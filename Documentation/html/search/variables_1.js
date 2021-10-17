@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['phase_42',['phase',['../namespaceJulia.html#a89c631f2e71a18e32a6df6a12075e38d',1,'Julia']]],
-  ['pi_43',['pi',['../namespaceUnitCircle.html#a40316fbe8d8802dd4e4e6b4a0ce1d332',1,'UnitCircle']]]
+  ['j_58',['j',['../namespaceUnitCircle.html#a71f6b66c50f5092dd68a6a13442a6bcd',1,'UnitCircle']]],
+  ['julia_59',['julia',['../namespaceJulia.html#a83c2fc10fa81171be1fed7ea69053662',1,'Julia']]]
 ];
