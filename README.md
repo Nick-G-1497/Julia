@@ -6,7 +6,7 @@ The clock based on the Julia Sets. The idea of this quick coding project was to 
 https://nick-g-1497.github.io/JuliasClock/html/index.html
 ```
 ## Julia Sets
-This clock wouldn't have been possible without the work of Gaston Julia depicted bellow (https://en.wikipedia.org/wiki/Gaston_Julia). For an explaination of what the Julia Sets are please refer to (https://www.youtube.com/watch?v=dctJ7ISkU-4)
+This clock wouldn't have been possible without the work of Gaston Julia depicted bellow (on the right) (https://en.wikipedia.org/wiki/Gaston_Julia). For an explaination of what the Julia Sets are please refer to (https://www.youtube.com/watch?v=dctJ7ISkU-4)
 
 
 ![alt text](./assets/julia.jpeg)
