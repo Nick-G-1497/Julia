@@ -4,14 +4,12 @@
 #  @todo Get 4K images rendering
 #  @todo Get a way to combine the pngs into a gif for README.md page
 #  @todo dynamic color grading 
-#  @todo impolement multiplrocessing so it builds multiple unit circle collections 
+#  @todo impolement multi-threading so it builds multiple unit circle collections 
 #  at the same time (can either uses mutexes have each rotation be its own independant
 #  resource)
-#  @todo write some unit test making sure whatever implementation that gets 
+#  @todo figure out why unit test succeed locally but fail when run with github actions 
 #  @todo collaborate with someone who has a strong background in algorithms to make it run faster
 #  @todo eliminate the white borders surrounding the plot so it looks better as a background
-#  @todo see if there is a periodicity to the the movements of the function
-#  @todo implement eulers spiral as a parametric path
 
 from matplotlib.image import BboxImage
 import matplotlib.pyplot as plt
