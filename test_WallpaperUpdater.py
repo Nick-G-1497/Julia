@@ -1,5 +1,5 @@
 ##
-# @package Unit Test module for the WallpaperUpdater module
+# @package TestWallpaperUpdater module for testing the WallpaperUpdater module
 import unittest
 from WallpaperUpdater import WallpaperUpdater
 import subprocess
@@ -10,7 +10,7 @@ class TestWallPaperUpdater(unittest.TestCase):
 
     ##
     # @brief Test that the wallpaper updater actually updates the wallpaper
-    # @detials Given that I have called the set_wallpaper() method from the WallpaperUpdater class, when I check
+    # @details Given that I have called the set_wallpaper() method from the WallpaperUpdater class, when I check
     # what the current wallpaper is, then I should expect the current wallpaper to be the one which I set it to be
     def test_set_wallpaper(self):
         wp_updater = WallpaperUpdater()
