@@ -16,8 +16,10 @@ class WallpaperUpdater:
       ## 
       # Set your wallpaper to whatever photo is given via the path
       def set_wallpaper(self, absolute_path):
-            file = "file:///" + absolute_path 
-            os.system("gsettings set org.gnome.desktop.background picture-uri " + file)
+        command = 'dconf write \"/org/gnome/desktop/background/picture-uri" \"\'' + absolute_path + "\'\""
+        resize = 'dconf write "/org/gnome/desktop/background/picture-options" "\'stretched\'"' 
+        os.system(command)
+        os.system(resize)
 
 
 
