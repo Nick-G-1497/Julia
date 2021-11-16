@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['unitcircle_39',['UnitCircle',['../namespaceUnitCircle.html',1,'']]]
+  ['unit_41',['Unit',['../namespaceUnit.html',1,'']]],
+  ['unitcircle_42',['UnitCircle',['../namespaceUnitCircle.html',1,'']]]
 ];

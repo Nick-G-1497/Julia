@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wallpaperupdater_35',['WallpaperUpdater',['../classWallpaperUpdater_1_1WallpaperUpdater.html',1,'WallpaperUpdater']]]
+  ['unitcircle_36',['UnitCircle',['../classUnitCircle_1_1UnitCircle.html',1,'UnitCircle']]]
 ];
