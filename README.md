@@ -13,7 +13,7 @@ This clock wouldn't have been possible without the work of Gaston Julia depicted
 
 ## Clock - parametric path of the unit circle
 ![alt text](./assets/full_circle.gif)
-![alt text (./assets/three_colors.gif)]
+![alt text](./assets/three_colors.gif)
 
 ## Timer - parametric path of an inward spiral
  - when you get to a circle the timer is up
