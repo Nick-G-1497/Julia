@@ -2,7 +2,7 @@
 \label{classtest__WallpaperUpdater_1_1TestWallPaperUpdater}\index{test\_WallpaperUpdater.TestWallPaperUpdater@{test\_WallpaperUpdater.TestWallPaperUpdater}}
 
 
-\mbox{\hyperlink{namespaceUnit}{Unit}} Testing Class for the wallpaper updater module of \mbox{\hyperlink{namespaceJuliasClock}{Julias\+Clock}}.  
+Unit Testing Class for the wallpaper updater module of \mbox{\hyperlink{namespaceJuliasClock}{Julias\+Clock}}.  
 
 
 
@@ -28,13 +28,28 @@ Collaboration diagram for test\+\_\+\+Wallpaper\+Updater.\+Test\+Wall\+Paper\+Up
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classtest__WallpaperUpdater_1_1TestWallPaperUpdater_a8efdcf968227dbcb2c2c24a624aa2f4c}\label{classtest__WallpaperUpdater_1_1TestWallPaperUpdater_a8efdcf968227dbcb2c2c24a624aa2f4c}} 
 def \mbox{\hyperlink{classtest__WallpaperUpdater_1_1TestWallPaperUpdater_a8efdcf968227dbcb2c2c24a624aa2f4c}{test\+\_\+set\+\_\+wallpaper}} (self)
-\begin{DoxyCompactList}\small\item\em Test that the wallpaper updater actually updates the wallpaper @detials Given that I have called the set\+\_\+wallpaper() method from the \mbox{\hyperlink{namespaceWallpaperUpdater}{Wallpaper\+Updater}} class, when I check what the current wallpaper is, then I should expect the current wallpaper to be the one which I set it to be. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Test that the wallpaper updater actually updates the wallpaper @detail Given that I have called the set\+\_\+wallpaper() method from the \mbox{\hyperlink{namespaceWallpaperUpdater}{Wallpaper\+Updater}} class, when I check what the current wallpaper is, then I should expect the current wallpaper to be the one which I set it to be. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\mbox{\hyperlink{namespaceUnit}{Unit}} Testing Class for the wallpaper updater module of \mbox{\hyperlink{namespaceJuliasClock}{Julias\+Clock}}. 
+Unit Testing Class for the wallpaper updater module of \mbox{\hyperlink{namespaceJuliasClock}{Julias\+Clock}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtest__WallpaperUpdater_1_1TestWallPaperUpdater_a8efdcf968227dbcb2c2c24a624aa2f4c}\label{classtest__WallpaperUpdater_1_1TestWallPaperUpdater_a8efdcf968227dbcb2c2c24a624aa2f4c}} 
+\index{test\_WallpaperUpdater.TestWallPaperUpdater@{test\_WallpaperUpdater.TestWallPaperUpdater}!test\_set\_wallpaper@{test\_set\_wallpaper}}
+\index{test\_set\_wallpaper@{test\_set\_wallpaper}!test\_WallpaperUpdater.TestWallPaperUpdater@{test\_WallpaperUpdater.TestWallPaperUpdater}}
+\doxysubsubsection{\texorpdfstring{test\_set\_wallpaper()}{test\_set\_wallpaper()}}
+{\footnotesize\ttfamily def test\+\_\+\+Wallpaper\+Updater.\+Test\+Wall\+Paper\+Updater.\+test\+\_\+set\+\_\+wallpaper (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Test that the wallpaper updater actually updates the wallpaper @detail Given that I have called the set\+\_\+wallpaper() method from the \mbox{\hyperlink{namespaceWallpaperUpdater}{Wallpaper\+Updater}} class, when I check what the current wallpaper is, then I should expect the current wallpaper to be the one which I set it to be. 
+
+\begin{DoxyNote}{Note}
+this test currented passes when run locally but fails when integrating into the C\+I/\+CD pipeline. Current working theory is that because the build server is headless/displayless that it doesn\textquotesingle{}t accept the update. 
+\end{DoxyNote}
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
