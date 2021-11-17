@@ -10,8 +10,10 @@ class TestWallPaperUpdater(unittest.TestCase):
 
     ##
     # @brief Test that the wallpaper updater actually updates the wallpaper
-    # @details Given that I have called the set_wallpaper() method from the WallpaperUpdater class, when I check
+    # @detail Given that I have called the set_wallpaper() method from the WallpaperUpdater class, when I check
     # what the current wallpaper is, then I should expect the current wallpaper to be the one which I set it to be
+    # @note this test currented passes when run locally but fails when integrating into the CI/CD pipeline. Current
+    # working theory is that because the build server is headless/displayless that it doesn't accept the update.
     def test_set_wallpaper(self):
         wp_updater = WallpaperUpdater()
 
