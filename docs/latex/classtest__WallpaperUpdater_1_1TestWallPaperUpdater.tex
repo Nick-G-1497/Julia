@@ -29,7 +29,7 @@ Collaboration diagram for test\+\_\+\+Wallpaper\+Updater.\+Test\+Wall\+Paper\+Up
 \begin{DoxyCompactItemize}
 \item 
 def \mbox{\hyperlink{classtest__WallpaperUpdater_1_1TestWallPaperUpdater_a8efdcf968227dbcb2c2c24a624aa2f4c}{test\+\_\+set\+\_\+wallpaper}} (self)
-\begin{DoxyCompactList}\small\item\em Test that the wallpaper updater actually updates the wallpaper @detail Given that I have called the set\+\_\+wallpaper() method from the \mbox{\hyperlink{namespaceWallpaperUpdater}{Wallpaper\+Updater}} class, when I check what the current wallpaper is, then I should expect the current wallpaper to be the one which I set it to be. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Test that the wallpaper updater actually updates the wallpaper. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -44,9 +44,9 @@ Unit Testing Class for the wallpaper updater module of \mbox{\hyperlink{namespac
 
 
 
-Test that the wallpaper updater actually updates the wallpaper @detail Given that I have called the set\+\_\+wallpaper() method from the \mbox{\hyperlink{namespaceWallpaperUpdater}{Wallpaper\+Updater}} class, when I check what the current wallpaper is, then I should expect the current wallpaper to be the one which I set it to be. 
+Test that the wallpaper updater actually updates the wallpaper. 
 
-\begin{DoxyNote}{Note}
+Given that I have called the set\+\_\+wallpaper() method from the \mbox{\hyperlink{namespaceWallpaperUpdater}{Wallpaper\+Updater}} class, when I check what the current wallpaper is, then I should expect the current wallpaper to be the one which I set it to be \begin{DoxyNote}{Note}
 this test currented passes when run locally but fails when integrating into the C\+I/\+CD pipeline. Current working theory is that because the build server is headless/displayless that it doesn\textquotesingle{}t accept the update. 
 \end{DoxyNote}
 
