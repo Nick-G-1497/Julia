@@ -1,10 +1,16 @@
 ## 
 #  @package Julia
 #  A library for generating various collections of Julia Sets
-#  @todo Get 4K images rendering
-#  @todo Get a way to combine the pngs into a gif for README.md page
-#  @todo dynamic color grading 
-#  @todo impolement multi-threading so it builds multiple unit circle collections 
+#  @todo Get 4K images rendering and have it have a time resolution of every second (360 Julia sets per unit circle).
+#  This will take a lot of computation however we know that it is in fact finite and will take fewer than 
+#  183 trillion z squared plus c's, however, in practice it is much lower since most of the unit circle compromises
+#  Fatou Dust and therefore diverges pretty quickly.
+#  @todo dynamic color grading - Currently the image rendering is handled by matplotlib pyplot. It is apparent the 
+#  color grading happens in discrete boundaries as such so much of the resolution of the julia sets are lost via 
+#  the color grading as much of the unit circle compromises Fatou Dust. As such a better implementation would be 
+#  to implement color grading manually so that the colors fade more gradually and the resolution is maximized. 24
+#  different color gradings need to be created - one for each how of the day.
+#  @todo imploment multi-threading so it builds multiple unit circle collections 
 #  at the same time (can either uses mutexes have each rotation be its own independant
 #  resource)
 #  @todo figure out why unit test succeed locally but fail when run with github actions 

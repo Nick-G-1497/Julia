@@ -97,10 +97,9 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>path_and_file_namin
 <tr class="separator:a2aef26465287dddd8d862858ab4a271e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A library for generating various collections of <a class="el" href="namespaceJulia.html">Julia</a> Sets </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd><p class="startdd">Get 4K images rendering </p>
-<p class="interdd">Get a way to combine the pngs into a gif for README.md page </p>
-<p class="interdd">dynamic color grading </p>
-<p class="interdd">impolement multi-threading so it builds multiple unit circle collections at the same time (can either uses mutexes have each rotation be its own independant resource) </p>
+<div class="textblock"><p>A library for generating various collections of <a class="el" href="namespaceJulia.html">Julia</a> Sets </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd><p class="startdd">Get 4K images rendering and have it have a time resolution of every second (360 <a class="el" href="namespaceJulia.html">Julia</a> sets per unit circle). This will take a lot of computation however we know that it is in fact finite and will take fewer than 183 trillion z squared plus c's, however, in practice it is much lower since most of the unit circle compromises Fatou Dust and therefore diverges pretty quickly. </p>
+<p class="interdd">dynamic color grading - Currently the image rendering is handled by matplotlib pyplot. It is apparent the color grading happens in discrete boundaries as such so much of the resolution of the julia sets are lost via the color grading as much of the unit circle compromises Fatou Dust. As such a better implementation would be to implement color grading manually so that the colors fade more gradually and the resolution is maximized. 24 different color gradings need to be created - one for each how of the day. </p>
+<p class="interdd">imploment multi-threading so it builds multiple unit circle collections at the same time (can either uses mutexes have each rotation be its own independant resource) </p>
 <p class="interdd">figure out why unit test succeed locally but fail when run with github actions </p>
 <p class="interdd">collaborate with someone who has a strong background in algorithms to make it run faster </p>
 <p class="enddd">eliminate the white borders surrounding the plot so it looks better as a background </p>

@@ -1,7 +1,9 @@
 ## 
 #  @package WallpaperUpdater
 #  A library for updating your wallpaper via python
-
+#  @todo Make set_wallpaper() work with any and all OS environments. Currently the wallpaper module only works
+#  with linux systems which are running a gnome environment, however, WallpaperUpdater should be agnostic of the
+#  the environment of which is running and should still work.
 
 import os 
 

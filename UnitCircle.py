@@ -14,13 +14,15 @@ pi = 3.14
 # The square root of negative one
 # @details Using j instead of i because "imaginary" is a terrible name for describing the behavior of complex numbers. 
 # The history of why we refer to imaginary numbers as follows: Renee Decartes ran into the issue of getting a 
-# negative number in the radical. Convertionally, this would be regarded as unsolvable with the current doctrine 
-# and state of mathematics. He asked the question if you pulled out the square root of negative one as a constant, 
-# mechanically as conceptually how would you deal with this. He relized that you can graphically represent numbers 
-# of these sort as 2 dimensional. He didn't think anyone would ever use this constant ever again because it made no s
-# ense to him. There is written record that he came up with the most ridulous name he could think of so he named them 
-# imaginary numbers. Euler late proposed a slight alternate naming which they are also refer to as complex number since 
-# the have 2D properties.  Historically j has also been used by electrical engineers because i is already current. 
+# negative number inside a radical. Convertionally, this would be regarded as unsolvable with the current doctrine 
+# and state of mathematics. He asked the question if you pulled out the square root of negative one as a constant (i) -
+# mechanically and conceptually how would you deal with this? He relized that you can graphically represent numbers 
+# of these sort as 2 dimensional. Numbers were either a product of a constant times 1 as a real number as we know them 
+# conventionally or they were an unintuitive product of a real number times the square root of negative one. He didn't 
+# think anyone would ever use this constant ever again because it made no sense to him. There is written record that he
+# came up with the most ridulous name he could think of so he named them imaginary numbers. Euler late proposed a slight 
+# alternate naming which they are also refer to as complex number since the have 2D properties.  Historically j has also 
+# been used by electrical engineers because i is already current. 
 j = complex(0, 1)
 
 ##complex

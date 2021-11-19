@@ -1,6 +1,17 @@
 ## 
 #  @package JuliasClock
 #  A library for building clocks based on the Julia Sets
+#  @todo Implement better file sturucture. Having all the folders for all of the color gradings in the root directory
+#  is kind of ugly. The program should be modified so that all the folders containing all of the pictures of all of 
+#  julia sets are contained in like a backgrounds directory or something. Clean up the directory structure of the
+#  project. 
+#  @todo Consolidate all requirements into the requirements.txt file. Should be able to install all requirements
+#  seamlessly via pip install -r requirements.txt or the equivalent idea using conda. This will help make the code
+#  more productionalized. 
+#  @todo Trace out the unit circle once. Store a matrix of value which compromise the length of time which each point
+#  had to take to diverge. Map every other color grading onto it. Current POC method of recalculating every julia 
+#  set for every color grading is just shit. 
+
 
 from numpy import absolute
 from Julia import *

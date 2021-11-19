@@ -26,13 +26,11 @@ string {\bfseries path\+\_\+and\+\_\+file\+\_\+naming\+\_\+convention} = cmap + 
 
 \doxysubsection{Detailed Description}
 A library for generating various collections of \mbox{\hyperlink{namespaceJulia}{Julia}} Sets \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Get 4K images rendering 
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Get 4K images rendering and have it have a time resolution of every second (360 \mbox{\hyperlink{namespaceJulia}{Julia}} sets per unit circle). This will take a lot of computation however we know that it is in fact finite and will take fewer than 183 trillion z squared plus c\textquotesingle{}s, however, in practice it is much lower since most of the unit circle compromises Fatou Dust and therefore diverges pretty quickly. 
 
-Get a way to combine the pngs into a gif for R\+E\+A\+D\+M\+E.\+md page 
+dynamic color grading -\/ Currently the image rendering is handled by matplotlib pyplot. It is apparent the color grading happens in discrete boundaries as such so much of the resolution of the julia sets are lost via the color grading as much of the unit circle compromises Fatou Dust. As such a better implementation would be to implement color grading manually so that the colors fade more gradually and the resolution is maximized. 24 different color gradings need to be created -\/ one for each how of the day. 
 
-dynamic color grading 
-
-impolement multi-\/threading so it builds multiple unit circle collections at the same time (can either uses mutexes have each rotation be its own independant resource) 
+imploment multi-\/threading so it builds multiple unit circle collections at the same time (can either uses mutexes have each rotation be its own independant resource) 
 
 figure out why unit test succeed locally but fail when run with github actions 
 
