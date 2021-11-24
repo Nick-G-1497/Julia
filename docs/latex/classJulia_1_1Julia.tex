@@ -31,7 +31,11 @@ def \mbox{\hyperlink{classJulia_1_1Julia_ae0335f4eaf329175291d55970fa68b33}{set\
 def \mbox{\hyperlink{classJulia_1_1Julia_a34735afc8b0dbf49fba49e2bd99c5b10}{set\+\_\+color\+\_\+map}} (self, cmap)
 \begin{DoxyCompactList}\small\item\em Function enabled to let the end use set the color map they like best. \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{classJulia_1_1Julia_a8125005d0461c79de8120fd509839812}{plot\+\_\+all\+\_\+sets\+\_\+on\+\_\+the\+\_\+unit\+\_\+circle}} (self, resolution\+\_\+in\+\_\+time, cmap, path)
-\begin{DoxyCompactList}\small\item\em Define a unit circle, transcribe it in the complex plane, and find all of the julia set for all of the value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Define a unit circle, transcribe it in the complex plane, and find all of the julia set for all of the value. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classJulia_1_1Julia_af134ccc57115e61d2e6a19b4cd8d3a3f}{plot\+\_\+some\+\_\+sets\+\_\+on\+\_\+real\+\_\+number\+\_\+space}} (self, resolution\+\_\+in\+\_\+time, cmap, path)
+\begin{DoxyCompactList}\small\item\em Define a subset 2 -\/$>$ -\/2 of the real number space \textbackslash{}mathbb\{R\}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classJulia_1_1Julia_a818ebc1c7594c96df12a51918952d4c9}{plot\+\_\+some\+\_\+sets\+\_\+on\+\_\+imaginary\+\_\+number\+\_\+space}} (self, resolution\+\_\+in\+\_\+time, cmap, path)
+\begin{DoxyCompactList}\small\item\em Define a line in the complex plane ranging from 2 to -\/2. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -123,6 +127,44 @@ For explaination of what the Mandelbrot Set is see -\/ \href{https://youtu.be/NG
 
 Benoit Mandelbrot is a recent enough mathematician for you to find his Ted Talk on youtube\+: \href{https://www.youtube.com/watch?v=ay8OMOsf6AQ}{\texttt{ https\+://www.\+youtube.\+com/watch?v=ay8\+O\+M\+Osf6\+AQ}} 
 \end{DoxyNote}
+\mbox{\Hypertarget{classJulia_1_1Julia_a818ebc1c7594c96df12a51918952d4c9}\label{classJulia_1_1Julia_a818ebc1c7594c96df12a51918952d4c9}} 
+\index{Julia.Julia@{Julia.Julia}!plot\_some\_sets\_on\_imaginary\_number\_space@{plot\_some\_sets\_on\_imaginary\_number\_space}}
+\index{plot\_some\_sets\_on\_imaginary\_number\_space@{plot\_some\_sets\_on\_imaginary\_number\_space}!Julia.Julia@{Julia.Julia}}
+\doxysubsubsection{\texorpdfstring{plot\_some\_sets\_on\_imaginary\_number\_space()}{plot\_some\_sets\_on\_imaginary\_number\_space()}}
+{\footnotesize\ttfamily def Julia.\+Julia.\+plot\+\_\+some\+\_\+sets\+\_\+on\+\_\+imaginary\+\_\+number\+\_\+space (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{resolution\+\_\+in\+\_\+time,  }\item[{}]{cmap,  }\item[{}]{path }\end{DoxyParamCaption})}
+
+
+
+Define a line in the complex plane ranging from 2 to -\/2. 
+
+Then find every corresponding julia set on that line. 
+\begin{DoxyParams}{Parameters}
+{\em resolution\+\_\+in\+\_\+time} & -\/ degree of resolution that the line should have. number of steps is equal to resolution\+\_\+in\+\_\+time times four \\
+\hline
+{\em cmap} & -\/ color map \\
+\hline
+{\em path} & -\/ file path and naming convention to store the files. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classJulia_1_1Julia_af134ccc57115e61d2e6a19b4cd8d3a3f}\label{classJulia_1_1Julia_af134ccc57115e61d2e6a19b4cd8d3a3f}} 
+\index{Julia.Julia@{Julia.Julia}!plot\_some\_sets\_on\_real\_number\_space@{plot\_some\_sets\_on\_real\_number\_space}}
+\index{plot\_some\_sets\_on\_real\_number\_space@{plot\_some\_sets\_on\_real\_number\_space}!Julia.Julia@{Julia.Julia}}
+\doxysubsubsection{\texorpdfstring{plot\_some\_sets\_on\_real\_number\_space()}{plot\_some\_sets\_on\_real\_number\_space()}}
+{\footnotesize\ttfamily def Julia.\+Julia.\+plot\+\_\+some\+\_\+sets\+\_\+on\+\_\+real\+\_\+number\+\_\+space (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{resolution\+\_\+in\+\_\+time,  }\item[{}]{cmap,  }\item[{}]{path }\end{DoxyParamCaption})}
+
+
+
+Define a subset 2 -\/$>$ -\/2 of the real number space \textbackslash{}mathbb\{R\}. 
+
+Then find all of the julia sets for all of the values 
+\begin{DoxyParams}{Parameters}
+{\em resolution\+\_\+in\+\_\+time} & -\/ parameter setting how many increments to take on the path \\
+\hline
+{\em cmap} & -\/ matplot lib color mapping to apply \\
+\hline
+{\em path} & -\/ path and naming convention to store the files \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classJulia_1_1Julia_a0e1936a276502427c68224cec26ac15a}\label{classJulia_1_1Julia_a0e1936a276502427c68224cec26ac15a}} 
 \index{Julia.Julia@{Julia.Julia}!plot\_with\_PIL@{plot\_with\_PIL}}
 \index{plot\_with\_PIL@{plot\_with\_PIL}!Julia.Julia@{Julia.Julia}}

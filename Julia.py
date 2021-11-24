@@ -28,6 +28,7 @@ from math import *
 from PIL import Image
 from numpy import complex, array
 import colorsys
+import os
 # from multiprocessing import Poll
 
 ##
@@ -272,11 +273,40 @@ class Julia ():
 		
 		step = 59 
 		for z_value in unit_circle:
+		    self.set_constant(z_value)
+		    self.set_color_map(cmap)
+		    self.plot_julia_set_with_matplotlib(cmap, step, path)
+		    step -= 1
+
+	##
+	# Define a subset 2 -> -2 of the real number space \mathbb{R}. Then find all of the julia sets for all of the values
+	# @param resolution_in_time - parameter setting how many increments to take on the path
+	# @param cmap - matplot lib color mapping to apply
+	# @param path - path and naming convention to store the files
+	def plot_some_sets_on_real_number_space(self, resolution_in_time, cmap, path): 
+		real_line = [-i/resolution_in_time for i in range(-2 * resolution_in_time, 2 * resolution_in_time, 1)]
+		index = 4 * resolution_in_time
+		# print(real_line)
+		for z_value in real_line:
 			self.set_constant(z_value)
+			print(z_value)
 			self.set_color_map(cmap)
-			self.plot_julia_set_with_matplotlib(cmap, step, path)
-			step -= 1
+			self.plot_julia_set_with_matplotlib(cmap, index, path)
+			index -= 1
+
+	def plot_some_sets_on_imaginary_number_space (self, resolution_in_time, cmap, path):
+		imaginary_line = [complex(0,-i)/resolution_in_time for i in range(-2 * resolution_in_time, 2 * resolution_in_time, 1)]
+		index = 4*resolution_in_time
+		
+		for z_value in imaginary_line:
+			self.set_constant(z_value)
+			print(z_value)
+			self.set_color_map(cmap)
+			self.plot_julia_set_with_matplotlib(cmap, index, path)
+			index -= 1
+
 	
+                    
 
 ##
 #Main Block of code that gets executed if you call it directly otherwise you can just import the class and not bring this code with ut 		
@@ -287,11 +317,22 @@ if __name__ == '__main__':
 	# Create an instance of the Julia object
 	julia = Julia()	
 	
-	resolution_in_time = 100
-	cmap = 'cool_r'
-	path_and_file_naming_convention = cmap + '_Julia_Set/' + cmap + '_'
+	resolution_in_time = 500
+	cmap = 'gist_earth'
+	type_of_path = 'real_number_line'
+
+	# cmap = 'cubehelix'
+	# type_of_path = 'imaginary_line'
+
+
+	path_and_file_naming_convention = type_of_path + '_' + cmap + '_Julia_Set/' + cmap + '_'
+	# os.system('mkdir ' + type_of_path + '_' + cmap + '_Julia_Set/')
 	##
 	#Find all the sets for all of the points on the unit circle
-	julia.plot_all_sets_on_spiral(resolution_in_time, cmap, path_and_file_naming_convention)
-    # julia.plot_all_sets_on_spiral(resolution_in_time, cmap, path_and_file_naming_convention)
-    # julia.plot_all_sets_on_spiral(resolution_in_time, cmap, path_and_file_naming_convention)
+	# julia.plot_some_sets_on_imaginary_number_space(resolution_in_time, cmap, path_and_file_naming_convention)
+	# input()
+	julia.plot_some_sets_on_real_number_space(resolution_in_time, cmap, path_and_file_naming_convention)
+
+
+
+	
