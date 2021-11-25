@@ -85,6 +85,8 @@ class Julia ():
 
 	## 
 	# Function enabled to test whether the constant value defined is within this specific julia set that pertains to the constant value we defined for the set. 
+	# @param h_range - height range, number of pixels in the vertical axis
+	# @param w_range - width range, number of pixels in the horizontal axis
 	def _julia_set(self, h_range, w_range, max_iterations):
 		y, x = np.ogrid[1.4: -1.4: h_range*1j, -2.8: 2.8: w_range*1j]
 		z_array = x + y*1j
@@ -294,6 +296,13 @@ class Julia ():
 			self.plot_julia_set_with_matplotlib(cmap, index, path)
 			index -= 1
 
+
+	##
+	# Define a line in the complex plane ranging from 2 to -2. Then find every corresponding julia set on that line.
+	# @param resolution_in_time - degree of resolution that the line should have. number of steps is equal to resolution_in_time
+	# times four
+	# @param cmap - color map
+	# @param path - file path and naming convention to store the files. 
 	def plot_some_sets_on_imaginary_number_space (self, resolution_in_time, cmap, path):
 		imaginary_line = [complex(0,-i)/resolution_in_time for i in range(-2 * resolution_in_time, 2 * resolution_in_time, 1)]
 		index = 4*resolution_in_time

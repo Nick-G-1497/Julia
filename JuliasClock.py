@@ -110,6 +110,10 @@ class JuliasClock :
     ##
     # Compile all the jpg for all of the Julia Sets
     # @note one should expect this to take about a fortnight
+    # @todo This function should be improved with a decorator. The decorator should
+    # create a cache of all the julia sets for every constant value already calculated 
+    # and if the julia set for that specific z_value already exists in the cache then
+    # it should not be recalculated. 
     def _compile_sets_of_julia_sets(self):
         self.julia = Julia()
 
