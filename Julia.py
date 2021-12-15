@@ -196,8 +196,8 @@ class Julia ():
 		x_pixels = self._resolution_x - 10
 		y_pixels = self._resolution_y - 10
 		for x in range( x_pixels ):
-    			for y in range( y_pixels ):
-    					pixels[x, y] = int(color_mapped_array[x, y])
+			for y in range( y_pixels ):
+				pixels[x, y] = int(color_mapped_array[x, y])
 		
 		bitmap.show()
 	
@@ -388,10 +388,9 @@ class Julia ():
 			# add pragma once to the top
 			outfile.write('#pragma once \n')
 			outfile.write('#include <inttypes.h>\n')
-			outfile.write('const uint32_t x_resolution = ' + str(x_resolution) +';\n')
-			outfile.write('const uint32_t y_resolution = ' + str(y_resolution) + ';\n')
 
-			outfile.write('uint32_t itteration_till_divergence[x_resolution][y_resolution] = \n')
+
+			outfile.write('uint32_t itteration_till_divergence[' +str(x_resolution) +'][' +str(y_resolution) + '] =\n')
 			outfile.write('{ \n')
 			for row in rows:
 				outfile.write('\t{')
