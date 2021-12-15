@@ -27,14 +27,39 @@ from UnitCircle import *
 from math import *
 from PIL import Image
 from numpy import complex, array
+import functools
 import colorsys
 import os
+import random
 # from multiprocessing import Poll
 
 ##
 # Lambda function used to get the phase of a point in the complex plane
 # @param z_value point in the complex plane with a real and imaginary attribute
 phase = lambda z_value : atan(z_value.imag/ z_value.real) 
+
+
+# def cache_values (func):
+
+# 		'''
+# 		cached_values is a dictionary of Julia Sets where the key value
+# 		is the constant value in the complex plain that the Julia Set was 
+# 		computed with and 
+# 		'''
+# 		cached_values = {}
+
+# 		@functools.wraps(func)
+# 		def wrapper (self, *args, **kwarg):
+
+# 			# key = 
+# 			try:
+# 				cached_values[key]
+# 			except KeyError:
+# 				cached_values[key] = func(*args, **kwarg)
+
+# 			return cached_values[key]
+
+# 		return
 		
 ##
 # Julia is a tool built for generatinpythg various julia sets. A julia set is defined by a function repeated or itterated numerous time. If due to the starting point the funtion diverges over itteration then the point is said not to be in the set. If remains inside an arbitrary finite space we define then it is said to be in the set.
@@ -53,6 +78,7 @@ class Julia ():
 	_max_itt = 64
 	_c = complex(-0.6, 0.4)
 	_cmap = 'Purples'
+
 
 	def plot_all_sets_on_the_eulers_spiral(self, resolution_in_time, cmap, path):
 		spiral_t = EulersSpiral(resolution_in_time )
@@ -86,7 +112,8 @@ class Julia ():
 	## 
 	# Function enabled to test whether the constant value defined is within this specific julia set that pertains to the constant value we defined for the set. 
 	# @param h_range - height range, number of pixels in the vertical axis
-	# @param w_range - width range, number of pixels in the horizontal axis
+	# @param w_range - width range, number of pixels in the horizontal axis\
+	# @cache_values
 	def _julia_set(self, h_range, w_range, max_iterations):
 		y, x = np.ogrid[1.4: -1.4: h_range*1j, -2.8: 2.8: w_range*1j]
 		z_array = x + y*1j
@@ -314,6 +341,74 @@ class Julia ():
 			self.plot_julia_set_with_matplotlib(cmap, index, path)
 			index -= 1
 
+	def test_cache_decorator(self):
+
+		values = [.678j for _ in range(50)]
+		cmaps = ['gist_gray', 'ocean', 'prism', 'Purples', 'Reds', 'Blues']
+
+		for value in values:
+			self.set_constant(value)
+
+			cmap = random.choice(cmaps) 
+			self.set_color_map(cmap)
+			fig = plt.figure()
+			plt.imshow(self._julia_set(
+				self._resolution_y,
+				self._resolution_x, 
+				255
+			), cmap = cmap)
+			plt.axis('off')
+			plt.tight_layout()
+			plt.show()
+			# plt.close()
+
+
+	def output_julia_set_to_c_style_header_file ( self, c_value, x_resolution, y_resolution ):
+
+		itterations_till_divergence = self._julia_set(y_resolution, x_resolution, max_iterations=1000)
+
+		itterations_till_divergence = itterations_till_divergence.transpose()
+		'''
+		#pragma once
+
+		uint32_t itterations_till_divergence [x_resolution] [y_resolution] = { {row}, {row} ... {last_row} }
+			
+		'''
+		# create new header file
+
+		filename = str(c_value) + '.h'
+
+		rows = []
+
+		for y in range(0, y_resolution):
+			rows.append(itterations_till_divergence[:][y])
+
+
+		with open(filename, 'w') as outfile:
+			# add pragma once to the top
+			outfile.write('#pragma once \n')
+			outfile.write('#include <inttypes.h>\n')
+			outfile.write('const uint32_t x_resolution = ' + str(x_resolution) +';\n')
+			outfile.write('const uint32_t y_resolution = ' + str(y_resolution) + ';\n')
+
+			outfile.write('uint32_t itteration_till_divergence[x_resolution][y_resolution] = \n')
+			outfile.write('{ \n')
+			for row in rows:
+				outfile.write('\t{')
+				for x in range(0, x_resolution - 1):
+					outfile.write(str(row[x]))
+					outfile.write(',')
+				outfile.write(str(row[x_resolution-1]))
+				outfile.write('},\n')
+			
+			outfile.write('};\n')
+			
+
+		
+
+		
+
+
 	
                     
 
@@ -328,19 +423,21 @@ if __name__ == '__main__':
 	
 	resolution_in_time = 500
 	cmap = 'gist_earth'
-	type_of_path = 'real_number_line'
 
 	# cmap = 'cubehelix'
 	# type_of_path = 'imaginary_line'
 
 
-	path_and_file_naming_convention = type_of_path + '_' + cmap + '_Julia_Set/' + cmap + '_'
-	# os.system('mkdir ' + type_of_path + '_' + cmap + '_Julia_Set/')
-	##
-	#Find all the sets for all of the points on the unit circle
-	# julia.plot_some_sets_on_imaginary_number_space(resolution_in_time, cmap, path_and_file_naming_convention)
-	# input()
-	julia.plot_some_sets_on_real_number_space(resolution_in_time, cmap, path_and_file_naming_convention)
+	# path_and_file_naming_convention = type_of_path + '_' + cmap + '_Julia_Set/' + cmap + '_'
+	# # os.system('mkdir ' + type_of_path + '_' + cmap + '_Julia_Set/')
+	# ##
+	# #Find all the sets for all of the points on the unit circle
+	# # julia.plot_some_sets_on_imaginary_number_space(resolution_in_time, cmap, path_and_file_naming_convention)
+	# # input()
+	# # julia.plot_some_sets_on_real_number_space(resolution_in_time, cmap, path_and_file_naming_convention)
+	# julia.test_cache_decorator()
+
+	julia.output_julia_set_to_c_style_header_file(0, 100, 100)
 
 
 
