@@ -11,7 +11,7 @@
 #  @todo collaborate with someone who has a strong background in algorithms to make it run faster
 #  @todo eliminate the white borders surrounding the plot so it looks better as a background
 #  @todo see if there is a periodicity to the the movements of the function
-#  @todo implement eulers spiral as a parametric path
+#  @todo implement eulers spiral as a parametric path - done wasn't that interesting
 
 from matplotlib.image import BboxImage
 import matplotlib.pyplot as plt
