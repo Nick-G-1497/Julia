@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wallpaperupdater_40',['WallpaperUpdater',['../namespaceWallpaperUpdater.html',1,'']]]
+  ['unitcircle_41',['UnitCircle',['../namespaceUnitCircle.html',1,'']]]
 ];

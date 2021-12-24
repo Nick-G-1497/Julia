@@ -1,7 +1,9 @@
 ## 
 #  @package WallpaperUpdater
 #  A library for updating your wallpaper via python
-
+#  @todo Make set_wallpaper() work with any and all OS environments. Currently the wallpaper module only works
+#  with linux systems which are running a gnome environment, however, WallpaperUpdater should be agnostic of the
+#  the environment of which is running and should still work.
 
 import os 
 import dbus
@@ -26,6 +28,7 @@ class WallpaperUpdater:
       
       ## 
       # Set your wallpaper to whatever photo is given via the path
+<<<<<<< HEAD
       def _kde_set_wallpaper(self, filepath, plugin='org.kde.image'):
             # file = "file:///" + absolute_path 
             # os.system("gsettings set org.gnome.desktop.background picture-uri " + file)
@@ -44,6 +47,14 @@ class WallpaperUpdater:
             plasma = dbus.Interface(bus.get_object('org.kde.plasmashell', '/PlasmaShell'), dbus_interface='org.kde.PlasmaShell')
             plasma.evaluateScript(jscript % (plugin, plugin, filepath))
             
+=======
+      def set_wallpaper(self, absolute_path):
+        command = 'dconf write \"/org/gnome/desktop/background/picture-uri" \"\'' + absolute_path + "\'\""
+        resize = 'dconf write "/org/gnome/desktop/background/picture-options" "\'stretched\'"' 
+        os.system(command)
+        os.system(resize)
+
+>>>>>>> d0eb761e90fc403722ed0da793106c17424a4d2f
 
 
 if __name__ == '__main__':
