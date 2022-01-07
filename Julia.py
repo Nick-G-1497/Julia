@@ -26,7 +26,7 @@ from Spiral import Spiral
 from UnitCircle import *
 from math import *
 from PIL import Image
-from numpy import complex, array
+from numpy import complex, array, int8
 import functools
 import colorsys
 import os
@@ -367,21 +367,17 @@ class Julia ():
 
 		itterations_till_divergence = self._julia_set(y_resolution, x_resolution, max_iterations=1000)
 
-		itterations_till_divergence = itterations_till_divergence.transpose()
+		itterations_till_divergence = itterations_till_divergence.transpose().astype(np.uint8)
 		'''
 		#pragma once
 
-		uint32_t itterations_till_divergence [x_resolution] [y_resolution] = { {row}, {row} ... {last_row} }
+		uint8_t itterations_till_divergence [x_resolution] [y_resolution] = { {row}, {row} ... {last_row} }
 			
 		'''
 		# create new header file
 
 		filename = str(c_value) + '.h'
 
-		rows = []
-
-		for y in range(0, y_resolution):
-			rows.append(itterations_till_divergence[:][y])
 
 
 		with open(filename, 'w') as outfile:
@@ -390,15 +386,15 @@ class Julia ():
 			outfile.write('#include <inttypes.h>\n')
 
 
-			outfile.write('uint32_t itteration_till_divergence[' +str(x_resolution) +'][' +str(y_resolution) + '] =\n')
+			outfile.write('uint8_t itteration_till_divergence[] = \n')
 			outfile.write('{ \n')
-			for row in rows:
-				outfile.write('\t{')
+			for y in range(0, y_resolution - 1):
+				# outfile.write('\t{')
 				for x in range(0, x_resolution - 1):
-					outfile.write(str(row[x]))
+					outfile.write(str(hex((itterations_till_divergence[x][y]))))
 					outfile.write(',')
-				outfile.write(str(row[x_resolution-1]))
-				outfile.write('},\n')
+				outfile.write('\n')
+			outfile.write(str(itterations_till_divergence[x_resolution-1][y_resolution - 1]))
 			
 			outfile.write('};\n')
 			
@@ -436,7 +432,7 @@ if __name__ == '__main__':
 	# # julia.plot_some_sets_on_real_number_space(resolution_in_time, cmap, path_and_file_naming_convention)
 	# julia.test_cache_decorator()
 
-	julia.output_julia_set_to_c_style_header_file(0, 100, 100)
+	julia.output_julia_set_to_c_style_header_file(0, 64, 48)
 
 
 
