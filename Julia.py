@@ -16,11 +16,6 @@
 #  @todo figure out why unit test succeed locally but fail when run with github actions 
 #  @todo collaborate with someone who has a strong background in algorithms to make it run faster
 #  @todo eliminate the white borders surrounding the plot so it looks better as a background
-<<<<<<< HEAD
-#  @todo see if there is a periodicity to the the movements of the function
-#  @todo implement eulers spiral as a parametric path - done wasn't that interesting
-=======
->>>>>>> d0eb761e90fc403722ed0da793106c17424a4d2f
 
 from matplotlib.image import BboxImage
 import matplotlib.pyplot as plt
@@ -171,7 +166,7 @@ class Julia ():
 	# point lasted untill it diverged
 	# @todo fix spelling mistake
 	def color_map_PIL (self, itterations_til_divergence):
-    		return itterations_til_divergence % 255
+		return itterations_til_divergence % 255
 
 
 
@@ -307,10 +302,10 @@ class Julia ():
 		
 		step = 59 
 		for z_value in unit_circle:
-		    self.set_constant(z_value)
-		    self.set_color_map(cmap)
-		    self.plot_julia_set_with_matplotlib(cmap, step, path)
-		    step -= 1
+			self.set_constant(z_value)
+			self.set_color_map(cmap)
+			self.plot_julia_set_with_matplotlib(cmap, step, path)
+			step -= 1
 
 	##
 	# Define a subset 2 -> -2 of the real number space \mathbb{R}. Then find all of the julia sets for all of the values
