@@ -18,6 +18,7 @@ from Julia import *
 from WallpaperUpdater import *
 import time
 from datetime import datetime
+from datetime import date
 
 
 # ##
@@ -107,23 +108,8 @@ class JuliasClock :
     def jpgs_already_exist (self, path):
         return os.path.exists(path + '/winter_r/winter_r0.jpg')
     
-    ##
-    # Compile all the jpg for all of the Julia Sets
-    # @note one should expect this to take about a fortnight
-    # @todo This function should be improved with a decorator. The decorator should
-    # create a cache of all the julia sets for every constant value already calculated 
-    # and if the julia set for that specific z_value already exists in the cache then
-    # it should not be recalculated. 
-    def _compile_sets_of_julia_sets(self):
-        self.julia = Julia()
+   
 
-        for color in list(self.colors.values()) : 
-            path = str(os.getcwd()) + '/' + str(color) + '/'
-            os.mkdir(path)
-
-            self.julia.plot_all_sets_on_the_unit_circle(self._time_steps,
-                                                    color,
-                                                    path)
 
 
     ##
@@ -159,4 +145,14 @@ class JuliasClock :
 if __name__ == '__main__':
     jc = JuliasClock()
 
-    jc.start_clock()
+    julia = Julia()
+
+
+    try:
+        os.system(f'mkdir Output')
+        os.system(f'mkdir Output/{date.today()}')
+    except: 
+        print('All ready ran today save or delete data')
+
+
+    julia.render_unit_circle_sets_to_csv(f"./Output/{date.today()}", 1, 255, 50, 50)

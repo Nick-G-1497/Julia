@@ -21,16 +21,16 @@ from matplotlib.image import BboxImage
 import matplotlib.pyplot as plt
 import numpy as np
 from numpy.lib.function_base import iterable
-from EulersSpiral import EulersSpiral
+#from EulersSpiral import EulersSpiral
 from Spiral import Spiral
 from UnitCircle import *
 from math import *
 from PIL import Image
-from numpy import complex, array, int8
 import functools
 import colorsys
 import os
 import random
+
 # from multiprocessing import Poll
 
 ##
@@ -224,6 +224,30 @@ class Julia ():
 		plt.close()
 		
  
+
+	'''
+		Render every Julia set in the unit circle and save it to a csv file
+
+		[-] steps : number of points along the unit circle
+		[-] max_itt : max number of itterations to calculate before approximating that the value diverges
+		[-] resolution_x : resolution x axis
+		[-] resolution_y : resolution y axis
+	'''
+	def render_unit_circle_sets_to_csv (self, path, steps, max_itt, resolution_x, resolution_y):
+	
+		circle = UnitCircle(steps)
+		
+		unit_circle = circle.getValues()
+		
+		i = 0
+		for z_value in unit_circle:
+			self.set_constant(z_value)
+			np.savetxt(f"{path}/JuliaSet_UnitCircle_{i}.csv", self._julia_set(resolution_y, resolution_x, max_itt) , delimiter=",")
+			i += 1
+
+		
+
+
 
 	##
 	# Plot but for the Mandelbrot use case
