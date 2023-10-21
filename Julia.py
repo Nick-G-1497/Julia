@@ -30,6 +30,10 @@ import functools
 import colorsys
 import os
 import random
+import threading
+
+
+
 
 # from multiprocessing import Poll
 
@@ -78,6 +82,17 @@ class Julia ():
 	_max_itt = 64
 	_c = complex(-0.6, 0.4)
 	_cmap = 'Purples'
+
+	mutex = threading.Lock()
+
+	N = 256
+	max_i = 1080
+	S =2
+
+	def __init__(self, N = 256, max_i= 1080, S =2) -> None:
+		N = N
+		max_i = max_i
+		S = S
 
 
 	def plot_all_sets_on_the_eulers_spiral(self, resolution_in_time, cmap, path):
@@ -200,6 +215,8 @@ class Julia ():
 				pixels[x, y] = int(color_mapped_array[x, y])
 		
 		bitmap.show()
+
+	
 	
 	##
 	# Function used to render an image of the specific julia set defined by the constant value given by the user
@@ -224,6 +241,26 @@ class Julia ():
 		plt.close()
 		
  
+	def calc_and_save_julia_set(self, path, z_value, step_num, max_itt, resolution_x, resolution_y, barrier):
+		self.set_constant(z_value)
+		np.savetxt(f"{path}_{step_num}.csv", self._julia_set(resolution_y, resolution_x, max_itt) , delimiter=",")
+		
+		self.mutex.acquire()
+
+		print(step_num)
+		print(barrier.n_waiting)
+
+		self.mutex.release()
+
+		barrier.wait()
+
+
+
+	def calc_and_save_manelbrot_set(self, path, z_value, max_itt, resolution_x, resolution_y):
+		self.set_constant(z_value)
+		np.savetxt(f"{path}", self._mandelbrot_set(resolution_y, resolution_x, max_itt) , delimiter=",")
+	
+
 
 	'''
 		Render every Julia set in the unit circle and save it to a csv file
@@ -239,15 +276,17 @@ class Julia ():
 		
 		unit_circle = circle.getValues()
 		
-		i = 0
-		for z_value in unit_circle:
-			self.set_constant(z_value)
-			np.savetxt(f"{path}/JuliaSet_UnitCircle_{i}.csv", self._julia_set(resolution_y, resolution_x, max_itt) , delimiter=",")
-			i += 1
-
+		barrier = threading.Barrier(steps)
 		
 
+		i = 0
+		for z_value in unit_circle:
+			threading.Thread(target = self.calc_and_save_julia_set, args = (path, z_value, i, max_itt, resolution_x, resolution_y, barrier)).start()
+			i+=1
 
+		barrier.wait()
+		
+			
 
 	##
 	# Plot but for the Mandelbrot use case

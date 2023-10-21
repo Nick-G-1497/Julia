@@ -19,6 +19,12 @@ from WallpaperUpdater import *
 import time
 from datetime import datetime
 from datetime import date
+from PIL import Image, ImageDraw
+from numpy import genfromtxt
+import matplotlib.pyplot as plt
+import matplotlib
+import pandas as pd
+
 
 
 # ##
@@ -141,6 +147,11 @@ class JuliasClock :
 
             time.sleep(60) # sleep for sixty seconds
 
+def exponentially_mapped_and_cyclic_itter(itter):
+		return ( ( ( (itter/1080)**2 )*1080) **1.5) % 256
+        
+    
+
 
 if __name__ == '__main__':
     jc = JuliasClock()
@@ -148,11 +159,35 @@ if __name__ == '__main__':
     julia = Julia()
 
 
-    try:
-        os.system(f'mkdir Output')
-        os.system(f'mkdir Output/{date.today()}')
-    except: 
-        print('All ready ran today save or delete data')
+    os.system(f'rm -rf Output')
+    os.system(f'mkdir Output')
+    os.system(f'mkdir Output/{date.today()}')
+    # print('All ready ran today save or delete data')
 
 
-    julia.render_unit_circle_sets_to_csv(f"./Output/{date.today()}", 1, 255, 50, 50)
+    julia.render_unit_circle_sets_to_csv(f"./Output/{date.today()}", 1000, 1080, 1080, 1080)
+
+    print("pic")
+
+    raw_csv_data = np.genfromtxt(f'./Output/{date.today()}/mandelbrot.csv', delimiter= ',')
+
+    raw_colored_array = np.stack(np.vectorize(exponentially_mapped_and_cyclic_itter)(raw_csv_data))
+
+
+    colored_arr = np.zeros((1080, 1080, 3))
+
+    colored_arr[:, :, 0] = raw_csv_data
+    colored_arr[:, :, 1] = raw_colored_array
+    colored_arr[:, :, 2] = raw_colored_array 
+
+
+
+    img = Image.fromarray(colored_arr.astype('uint8'), 'RGB')
+
+    print(img.getpixel((0, 1)))
+
+    img.save("mandelbrot.png")
+
+    # data = genfromtxt(g, delimiter = ',')
+    # matplotlib.image.imsave('mandelbrot.png', data, cmap='gray')
+    
