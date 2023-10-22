@@ -25,6 +25,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import pandas as pd
 import threading
+import argparse
 
 
 # ##
@@ -155,8 +156,6 @@ def apply_color_mask_and_save(step, resolution_x, resolution_y, color_mapping, b
     raw_csv_data = np.load(f'./Output/{date.today()}/JuliaSet_{step}.npy')
 
     raw_colored_array = np.stack(np.vectorize(exponentially_mapped_and_cyclic_itter)(raw_csv_data, MAX_ITT, 2, 256))
-
-
     colored_arr = np.zeros((resolution_y, resolution_x, 3))
 
     colored_arr[:, :, 0] = raw_colored_array * color_mapping['red']
@@ -171,39 +170,50 @@ def apply_color_mask_and_save(step, resolution_x, resolution_y, color_mapping, b
     barrier.wait()
 
 
-color_map = {
-     'red' : 55,
-     'blue' : 75,
-     'green' : 15
-}
-
 
 if __name__ == '__main__':
-    jc = JuliasClock()
+    parser = argparse.ArgumentParser()
 
-    julia = Julia()
+    general = parser.add_argument_group("General Output")
+    general.add_argument("-x", "--resolution_x", type=int)
+    general.add_argument("-y", "--resolution_y", type=int)
+    general.add_argument("-s", "--num_steps", type=int)
+    parser.add_argument("--update_calculations", action="store_true")
+
+    color = parser.add_argument_group("Color")
+    color.add_argument("-r", "--red_multiplier", type=int)
+    color.add_argument("-b", "--blue_multiplier", type=int)
+    color.add_argument("-g", "--green_multiplier", type=int)
+
+    args = parser.parse_args()
+
+    steps = args.num_steps
+    resolution_x = args.resolution_x
+    resolution_y = args.resolution_y
+    MAX_ITT  = 276 
+
+    if args.update_calculations:
+
+        jc = JuliasClock()
+        julia = Julia()
+
+        os.system(f'rm -rf Output')
+        os.system(f'mkdir Output')
+        os.system(f'mkdir Output/{date.today()}')
 
 
-    resolution_x = 720
-    resolution_y = 720
-    MAX_ITT  = 256
-
-    steps = 25
-
-    os.system(f'rm -rf Output')
-    os.system(f'mkdir Output')
-    os.system(f'mkdir Output/{date.today()}')
+        julia.render_unit_circle_sets_to_csv(f"./Output/{date.today()}", steps, MAX_ITT, resolution_x, resolution_y)
 
 
-    julia.render_unit_circle_sets_to_csv(f"./Output/{date.today()}", steps, MAX_ITT, resolution_x, resolution_y)
+    default_color_map = {
+     'red' : args.red_multiplier,
+     'blue' : args.blue_multiplier,
+     'green' : args.green_multiplier
+    }
 
     barrier = threading.Barrier(steps + 1)
 
     for i in range(steps):
-        threading.Thread(target = apply_color_mask_and_save, args = (i, resolution_x, resolution_y, color_map, barrier)).start()
+        threading.Thread(target = apply_color_mask_and_save, args = (i, resolution_x, resolution_y, default_color_map, barrier)).start()
 
     barrier.wait()
-
-    # data = genfromtxt(g, delimiter = ',')
-    # matplotlib.image.imsave('mandelbrot.png', data, cmap='gray')
-    
