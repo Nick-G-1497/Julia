@@ -1,1 +1,11 @@
 Output/
+.vscode/
+*.py.swp
+JuliasClock.code-workspace
+.vscode/launch.json
+.vscode/launch.json
+.vscode/
+*.pyc
+__pycache__/Julia.cpython-311.pyc
+.vscode/launch.json
+__pycache__/Julia.cpython-311.pyc

@@ -24,8 +24,10 @@
         "-s",
         ".",
         "-p",
-        "test_*.py"
     ],
-    "python.testing.pytestEnabled": false,
-    "python.testing.unittestEnabled": true
+    "python.venvPath": "~/bin/anaconda3/envs",
+    "python.pythonPath": "~/bin/anaconda/envs/EM/bin/python"
 }
+
+
+   

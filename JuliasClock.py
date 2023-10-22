@@ -24,7 +24,7 @@ from numpy import genfromtxt
 import matplotlib.pyplot as plt
 import matplotlib
 import pandas as pd
-
+import threading
 
 
 # ##
@@ -147,10 +147,35 @@ class JuliasClock :
 
             time.sleep(60) # sleep for sixty seconds
 
-def exponentially_mapped_and_cyclic_itter(itter):
-		return ( ( ( (itter/1080)**2 )*1080) **1.5) % 256
+def exponentially_mapped_and_cyclic_itter(itter, max_i, S, N):
+		return ( ( ( (itter/max_i)**S )*N) **1.5) % N
         
     
+def apply_color_mask_and_save(step, resolution_x, resolution_y, color_mapping, barrier):
+    raw_csv_data = np.load(f'./Output/{date.today()}/JuliaSet_{step}.npy')
+
+    raw_colored_array = np.stack(np.vectorize(exponentially_mapped_and_cyclic_itter)(raw_csv_data, MAX_ITT, 2, 256))
+
+
+    colored_arr = np.zeros((resolution_y, resolution_x, 3))
+
+    colored_arr[:, :, 0] = raw_colored_array * color_mapping['red']
+    colored_arr[:, :, 1] = raw_colored_array * color_mapping['blue']
+    colored_arr[:, :, 2] = raw_colored_array * color_mapping['green']
+
+    img = Image.fromarray(colored_arr.astype('uint8'), 'RGB')
+
+    with open(f'./Output/{date.today()}/JuliaSet_{step}.png', 'wb') as outfile:
+        img.save(outfile)
+    
+    barrier.wait()
+
+
+color_map = {
+     'red' : 55,
+     'blue' : 75,
+     'green' : 15
+}
 
 
 if __name__ == '__main__':
@@ -159,34 +184,25 @@ if __name__ == '__main__':
     julia = Julia()
 
 
+    resolution_x = 720
+    resolution_y = 720
+    MAX_ITT  = 256
+
+    steps = 25
+
     os.system(f'rm -rf Output')
     os.system(f'mkdir Output')
     os.system(f'mkdir Output/{date.today()}')
-    # print('All ready ran today save or delete data')
 
 
-    julia.render_unit_circle_sets_to_csv(f"./Output/{date.today()}", 1000, 1080, 1080, 1080)
+    julia.render_unit_circle_sets_to_csv(f"./Output/{date.today()}", steps, MAX_ITT, resolution_x, resolution_y)
 
-    print("pic")
+    barrier = threading.Barrier(steps + 1)
 
-    raw_csv_data = np.genfromtxt(f'./Output/{date.today()}/mandelbrot.csv', delimiter= ',')
+    for i in range(steps):
+        threading.Thread(target = apply_color_mask_and_save, args = (i, resolution_x, resolution_y, color_map, barrier)).start()
 
-    raw_colored_array = np.stack(np.vectorize(exponentially_mapped_and_cyclic_itter)(raw_csv_data))
-
-
-    colored_arr = np.zeros((1080, 1080, 3))
-
-    colored_arr[:, :, 0] = raw_csv_data
-    colored_arr[:, :, 1] = raw_colored_array
-    colored_arr[:, :, 2] = raw_colored_array 
-
-
-
-    img = Image.fromarray(colored_arr.astype('uint8'), 'RGB')
-
-    print(img.getpixel((0, 1)))
-
-    img.save("mandelbrot.png")
+    barrier.wait()
 
     # data = genfromtxt(g, delimiter = ',')
     # matplotlib.image.imsave('mandelbrot.png', data, cmap='gray')

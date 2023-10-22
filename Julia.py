@@ -243,15 +243,7 @@ class Julia ():
  
 	def calc_and_save_julia_set(self, path, z_value, step_num, max_itt, resolution_x, resolution_y, barrier):
 		self.set_constant(z_value)
-		np.savetxt(f"{path}_{step_num}.csv", self._julia_set(resolution_y, resolution_x, max_itt) , delimiter=",")
-		
-		self.mutex.acquire()
-
-		print(step_num)
-		print(barrier.n_waiting)
-
-		self.mutex.release()
-
+		np.save(f"{path}/JuliaSet_{step_num}", self._julia_set(resolution_y, resolution_x, max_itt) )
 		barrier.wait()
 
 
@@ -273,12 +265,9 @@ class Julia ():
 	def render_unit_circle_sets_to_csv (self, path, steps, max_itt, resolution_x, resolution_y):
 	
 		circle = UnitCircle(steps)
-		
 		unit_circle = circle.getValues()
+		barrier = threading.Barrier(steps + 1)
 		
-		barrier = threading.Barrier(steps)
-		
-
 		i = 0
 		for z_value in unit_circle:
 			threading.Thread(target = self.calc_and_save_julia_set, args = (path, z_value, i, max_itt, resolution_x, resolution_y, barrier)).start()
